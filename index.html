@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innovation Biodesign Training Program 2026–2027 | Living Syllabus</title>
+<style>
+  :root{
+    --navy:#00305c; --blue:#005eb8; --lightblue:#e8f1fa; --accent:#f5a623;
+    --ink:#1a2733; --muted:#5b6b7a; --line:#dde5ec; --bg:#f7f9fb; --card:#ffffff;
+    --green:#1e7f4f; --green-bg:#e6f4ec; --locked:#9aa7b3;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.55;}
+  a{color:var(--blue);}
+  .wrap{max-width:1020px; margin:0 auto; padding:0 20px;}
+
+  header.hero{background:linear-gradient(135deg,var(--navy),var(--blue)); color:#fff; padding:36px 0 28px;}
+  header.hero h1{font-size:1.7rem; font-weight:700; letter-spacing:-.02em;}
+  header.hero .sub{margin-top:6px; opacity:.92; font-size:1rem;}
+  header.hero .badge{display:inline-block; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35); border-radius:999px; padding:3px 12px; font-size:.78rem; margin-bottom:12px; letter-spacing:.04em; text-transform:uppercase;}
+
+  nav.tabs{background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:10;}
+  nav.tabs .wrap{display:flex; gap:2px; overflow-x:auto;}
+  nav.tabs button{appearance:none; border:none; background:none; padding:14px 13px; font-size:.9rem; font-weight:600; color:var(--muted); cursor:pointer; border-bottom:3px solid transparent; white-space:nowrap;}
+  nav.tabs button:hover{color:var(--blue);}
+  nav.tabs button.active{color:var(--blue); border-bottom-color:var(--blue);}
+  nav.tabs button.locked{color:var(--locked); cursor:not-allowed; opacity:.65;}
+  nav.tabs button.locked::after{content:" 🔒"; font-size:.72em;}
+
+  main{padding:28px 0 60px;}
+  section.tab{display:none;}
+  section.tab.active{display:block;}
+
+  .card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin-bottom:18px;}
+  .card h2{font-size:1.2rem; color:var(--navy); margin-bottom:10px;}
+  .card h3{font-size:1rem; color:var(--navy); margin:16px 0 6px;}
+  .card p{margin-bottom:10px;}
+  .card ul, .card ol{margin:4px 0 12px 22px;}
+  .card li{margin-bottom:6px;}
+  .pill{display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; border-radius:999px; padding:2px 10px; margin-right:6px;}
+  .pill.due{background:#fdeeee; color:#b02a2a;}
+  .pill.read{background:var(--lightblue); color:var(--blue);}
+  .pill.new{background:#fff4e0; color:#9a6b00;}
+
+  .callout{border-left:4px solid var(--accent); background:#fffaf0; border-radius:6px; padding:14px 16px; margin-bottom:18px; font-size:.95rem;}
+  .callout.blue{border-left-color:var(--blue); background:var(--lightblue);}
+
+  table.simple{width:100%; border-collapse:collapse; font-size:.92rem; margin-bottom:8px;}
+  table.simple th{background:var(--lightblue); color:var(--navy); text-align:left; padding:8px 10px; border:1px solid var(--line);}
+  table.simple td{padding:8px 10px; border:1px solid var(--line); vertical-align:top;}
+
+  .timeline{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; margin-top:8px;}
+  .tl-card{border:1px solid var(--line); border-radius:10px; padding:16px 18px; background:#fff; position:relative;}
+  .tl-card.open{border-color:var(--blue); box-shadow:0 2px 8px rgba(0,94,184,.12);}
+  .tl-card.lockedc{opacity:.6; background:#fbfcfd; filter:grayscale(.6);}
+  .tl-card .mo{font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--muted);}
+  .tl-card h4{color:var(--navy); margin:4px 0 6px; font-size:1rem;}
+  .tl-card p{font-size:.87rem; color:var(--muted);}
+  .tl-card .status{position:absolute; top:14px; right:14px; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em;}
+  .tl-card .status.live{color:var(--green);}
+  .tl-card .status.lock{color:var(--locked);}
+
+  .obj{background:var(--green-bg); border:1px solid #cbe7d6; border-radius:8px; padding:12px 16px; margin-bottom:8px; font-size:.95rem;}
+  .obj b{color:var(--green);}
+
+  .comp{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:10px; margin-top:6px;}
+  .comp div{background:var(--lightblue); border-radius:8px; padding:10px 14px; font-size:.9rem;}
+  .comp b{color:var(--navy);}
+
+  /* interactive: checklist */
+  .check{display:flex; align-items:flex-start; gap:10px; padding:9px 12px; border:1px solid var(--line); border-radius:8px; margin-bottom:8px; background:#fff; cursor:pointer;}
+  .check input{margin-top:4px; width:16px; height:16px; cursor:pointer;}
+  .check.donec{background:var(--green-bg); border-color:#cbe7d6; text-decoration:line-through; color:var(--muted);}
+  .bar{height:10px; background:var(--line); border-radius:999px; overflow:hidden; margin:8px 0 4px;}
+  .bar span{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--blue),var(--green)); border-radius:999px; transition:width .4s;}
+
+  /* interactive: needs builder */
+  .builder{display:grid; gap:8px; margin-top:8px;}
+  .builder label{font-size:.83rem; font-weight:700; color:var(--navy);}
+  .builder input{font:inherit; border:1px solid var(--line); border-radius:6px; padding:9px 11px; width:100%;}
+  .builder button, .quiz button.qbtn, form.cform button{background:var(--blue); color:#fff; border:none; border-radius:6px; padding:9px 18px; font-weight:600; cursor:pointer; justify-self:start;}
+  .builder button:hover, form.cform button:hover{background:var(--navy);}
+  .needout{margin-top:10px; border-left:4px solid var(--green); background:var(--green-bg); border-radius:6px; padding:12px 14px; font-size:.97rem; display:none;}
+
+  /* interactive: quiz */
+  .quiz .q{margin-bottom:14px;}
+  .quiz .q p{font-weight:600; margin-bottom:6px;}
+  .quiz .opts button{display:block; width:100%; text-align:left; background:#fff; border:1px solid var(--line); border-radius:8px; padding:9px 12px; margin-bottom:6px; font:inherit; cursor:pointer;}
+  .quiz .opts button:hover{border-color:var(--blue); background:var(--lightblue);}
+  .quiz .opts button.right{background:var(--green-bg); border-color:var(--green); font-weight:600;}
+  .quiz .opts button.wrong{background:#fdeeee; border-color:#b02a2a;}
+  .quiz .expl{display:none; font-size:.88rem; color:var(--muted); background:#fbfcfd; border-radius:6px; padding:8px 12px; margin-top:2px;}
+
+  /* materials & concepts */
+  .mats{display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 4px;}
+  .mat{display:inline-flex; align-items:center; gap:6px; background:var(--lightblue); border:1px solid #cddcef; color:var(--navy); border-radius:8px; padding:6px 12px; font-size:.85rem; font-weight:600; cursor:default;}
+  .mat span{font-weight:400; color:var(--muted); font-size:.78rem;}
+  .concepts{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:10px; margin-top:8px;}
+  .concept{border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:8px; padding:12px 14px; background:#fffdf7; font-size:.9rem;}
+  .concept b{display:block; color:var(--navy); margin-bottom:3px;}
+
+  /* readings */
+  .reading{border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:12px; background:#fff;}
+  .reading.readdone{background:var(--green-bg); border-color:#cbe7d6;}
+  .rhead{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:6px;}
+  .rbtn{background:#fff; border:1.5px solid var(--blue); color:var(--blue); border-radius:6px; padding:5px 12px; font-weight:600; font-size:.82rem; cursor:pointer; white-space:nowrap;}
+  .rbtn.on{background:var(--green); border-color:var(--green); color:#fff;}
+  .reading details{margin-top:8px; border-top:1px dashed var(--line); padding-top:8px;}
+  .reading summary{cursor:pointer; font-size:.88rem; font-weight:600; color:var(--blue);}
+
+  /* poll */
+  .poll button{display:flex; align-items:center; gap:12px; width:100%; background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px 14px; margin-bottom:8px; font:inherit; cursor:pointer; text-align:left;}
+  .poll button:hover{border-color:var(--blue); background:var(--lightblue);}
+  .poll button.chosen{border-color:var(--blue); box-shadow:0 0 0 2px var(--lightblue);}
+  .poll .plabel{flex:0 0 44%;}
+  .poll .pbar{flex:1; height:10px; background:var(--line); border-radius:999px; overflow:hidden;}
+  .poll .pbar span{display:block; height:100%; width:0; background:var(--blue); border-radius:999px; transition:width .6s;}
+  .poll .pct{flex:0 0 44px; text-align:right; font-size:.85rem; font-weight:700; color:var(--navy);}
+
+  /* comments */
+  .comment{border:1px solid var(--line); border-radius:8px; padding:12px 14px; margin-bottom:10px; background:#fff;}
+  .replybtn{background:none; border:none; color:var(--blue); font-size:.8rem; font-weight:600; cursor:pointer; padding:4px 0 0; }
+  .replybtn:hover{text-decoration:underline;}
+  .rform{display:grid; gap:6px; margin-top:8px;}
+  .rform input, .rform textarea{font:inherit; border:1px solid var(--line); border-radius:6px; padding:7px 10px; width:100%;}
+  .rform textarea{min-height:50px; resize:vertical;}
+  .rform button{background:var(--blue); color:#fff; border:none; border-radius:6px; padding:7px 14px; font-weight:600; cursor:pointer; justify-self:start; font-size:.85rem;}
+  .comment .who{font-weight:700; color:var(--navy); font-size:.9rem;}
+  .comment .when{color:var(--muted); font-size:.78rem; margin-left:8px;}
+  .comment .body{margin-top:4px; font-size:.93rem;}
+  .comment.reply{margin-left:34px; background:#fbfcfd;}
+  form.cform{margin-top:14px; display:grid; gap:8px;}
+  form.cform input, form.cform textarea{font:inherit; border:1px solid var(--line); border-radius:6px; padding:9px 11px; width:100%;}
+  form.cform textarea{min-height:70px; resize:vertical;}
+
+  footer{border-top:1px solid var(--line); padding:20px 0 40px; color:var(--muted); font-size:.85rem; background:#fff;}
+  .small{font-size:.82rem; color:var(--muted);}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">Living syllabus · one page · always current</span>
+    <h1>Montefiore Einstein Innovation Biodesign Training Program</h1>
+    <div class="sub">2026–2027 Cohort · Training the next generation of clinician innovators · Open to faculty and fellows</div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="wrap">
+    <button class="active" data-tab="syllabus">Syllabus</button>
+    <button data-tab="month1">Month 1 · Sep</button>
+    <button data-tab="month2">Month 2 · Oct</button>
+    <button data-tab="month3">Month 3 · Nov</button>
+    <button data-tab="month4">Month 4 · Dec</button>
+    <button data-tab="month5">Month 5 · Jan</button>
+    <button data-tab="month6">Month 6 · Feb</button>
+    <button data-tab="month7">Month 7 · Mar</button>
+    <button data-tab="month8">Month 8 · Apr</button>
+    <button data-tab="month9">Month 9 · May</button>
+    <button data-tab="videos">🎥 Video Library</button>
+    <button data-tab="resources">Resources</button>
+    <button data-tab="faq">FAQ</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ================= SYLLABUS ================= -->
+  <section class="tab active" id="syllabus">
+    <div class="callout blue"><b>How this site works:</b> every month has its own section — learning objectives, required readings and videos, dated assignments, the exact templates you need, and a discussion thread for asynchronous questions. It all lives in one <code>index.html</code> on GitHub, so updating the program is a single commit. No more guessing what's expected.</div>
+
+    <div class="card">
+      <h2>About the Program</h2>
+      <p>The Montefiore Einstein Innovation Biodesign Training Program is a unique one-year experience that seeks to train the next generation of clinician innovators. Given the high burden of chronic diseases in the Bronx, and the corresponding challenges faced by patients and providers, the program's objectives are to:</p>
+      <ol>
+        <li>Develop and implement innovative health technologies that improve outcomes (clinical, process, economic) for patients, providers, and the Montefiore Einstein health system.</li>
+        <li>Contribute to presentations, publications, grant funding, and institutional intellectual property.</li>
+        <li>Contribute to an innovation-based ecosystem at Montefiore Einstein comprised of didactics, mentoring, and sustainable product development and implementation.</li>
+      </ol>
+      <table class="simple">
+        <tr><th>Eligibility</th><td>Open to faculty and fellows</td></tr>
+        <tr><th>Format</th><td>Health technology–oriented didactics · clinical immersion · mentored innovation project · end-of-program pitch to Montefiore Einstein leadership</td></tr>
+        <tr><th>Teams</th><td>3–4 members per team, with faculty mentor(s) identified in Month 1</td></tr>
+        <tr><th>Mentoring</th><td>Montefiore Einstein faculty and external experts</td></tr>
+        <tr><th>Contact</th><td>Dr. Sunit P. Jariwala — <a href="mailto:sjariwal@montefiore.org">sjariwal@montefiore.org</a> (questions and suggestions welcome)</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Learning Competencies</h2>
+      <p class="small">Each monthly section maps to one or more of these seven competencies.</p>
+      <div class="comp">
+        <div><b>1.</b> Innovations in digital health technologies, devices, and therapeutics</div>
+        <div><b>2.</b> Market assessment, value chains, and value propositions</div>
+        <div><b>3.</b> Intellectual property and regulatory considerations</div>
+        <div><b>4.</b> Solution/product validation and key performance indicators</div>
+        <div><b>5.</b> Funding, payment models, sustainability, and return on investment</div>
+        <div><b>6.</b> Financial operations</div>
+        <div><b>7.</b> Strategic partnerships</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>9-Month Roadmap</h2>
+      <p>Each block becomes a full section (objectives · readings · assignments · discussion) when its month opens — including that month's featured seminars, lab meetings, and podcasts from the <b>🎥 Video Library</b> (100+ recordings organized by biodesign domain).</p>
+      <div class="timeline">
+        <div class="tl-card open"><span class="status live">● Open</span><div class="mo">Month 1 · September</div><h4>Orientation, Teams &amp; Needs Finding</h4><p>Program setup · teams &amp; mentors · required readings begin · 10 needs per person · clinical immersion kickoff.</p></div>
+        <div class="tl-card open"><span class="status live">● Published</span><div class="mo">Month 2 · October</div><h4>Needs Screening &amp; Discovery</h4><p>Literature review · existing tech scan (app stores, ClinicalTrials.gov, USPTO) · stakeholder interviews begin · IRB started.</p></div>
+        <div class="tl-card open"><span class="status live">● Published</span><div class="mo">Month 3 · November</div><h4>Problem Statement &amp; Elevator Pitch</h4><p>Final need selection · problem statement · elevator pitch (template) · competency 1 didactics.</p></div>
+        <div class="tl-card open"><span class="status live">● Published</span><div class="mo">Month 4 · December</div><h4>Market Assessment &amp; Competitive Landscape</h4><p>AI-enabled TAM/SAM/SOM · segmentation · SWOT &amp; Porter's Five Forces · value proposition draft.</p></div>
+        <div class="tl-card open"><span class="status live">● Published</span><div class="mo">Month 5 · January</div><h4>MVP Planning &amp; Solution Development</h4><p>Product planning · KPIs · funding/resource needs &amp; budget request · prototype development begins.</p></div>
+        <div class="tl-card open"><span class="status live">● Published</span><div class="mo">Month 6 · February</div><h4>MVP Build &amp; Pitch Deck v1</h4><p>Prototype build continues · first pitch deck slides · pilot setting and champions identified.</p></div>
+        <div class="tl-card open"><span class="status live">● Published</span><div class="mo">Month 7 · March</div><h4>Pilot Testing &amp; Validation</h4><p>Implementation and validation · iterative improvements · IP strategy and invention disclosure.</p></div>
+        <div class="tl-card open"><span class="status live">● Published</span><div class="mo">Month 8 · April</div><h4>Iteration, Dissemination &amp; Sustainability</h4><p>Iterate from pilot results · abstract/manuscript · funding, ROI &amp; sustainability plan · pitch deck v2.</p></div>
+        <div class="tl-card open"><span class="status live">● Published</span><div class="mo">Month 9 · May</div><h4>Final Pitch to Leadership</h4><p>Practice with mentors and peers · end-of-program pitch presentation to Montefiore Einstein leadership · next steps.</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>The Backbone: Project Statement (Problem Space → Solution Space)</h2>
+      <p>Every team maintains one living <b>Project Statement</b>. The monthly sections walk you through completing it step by step:</p>
+      <table class="simple">
+        <tr><th style="width:50%">Problem Space (Months 1–4)</th><th>Solution Space (Months 5–9)</th></tr>
+        <tr><td>
+          1. Needs identification (multiple needs, screened)<br>
+          2. Market assessment — AI-enabled (TAM/SAM/SOM, segmentation)<br>
+          3. Competitive landscape &amp; Porter's Five Forces<br>
+          4. Literature review (PubMed, Google Scholar)<br>
+          5. Existing tech scan (app stores, ClinicalTrials.gov, USPTO)<br>
+          6. Stakeholder feedback — ≥10 interviews
+        </td><td>
+          1. Product planning &amp; invention (IRB, value proposition, KPIs, budget, prototype)<br>
+          2. Pilot testing: implementation, validation, iteration<br>
+          3. Intellectual property (invention disclosure)<br>
+          4. Dissemination, funding &amp; sustainability (abstracts, pitch deck, grants/partnerships)
+        </td></tr>
+      </table>
+      <p class="small">Templates for every step live in the shared Google Drive and are linked from the month where you need them.</p>
+    </div>
+
+    <div class="card">
+      <h2>Expectations &amp; Norms</h2>
+      <ul>
+        <li><b>Before each session:</b> complete the listed readings/podcasts — sessions assume you've done them.</li>
+        <li><b>Assignments:</b> due dates are listed in each month's section; deliverables go in your team's folder on the shared drive.</li>
+        <li><b>Asynchronous discussion:</b> post questions in the month's discussion thread — answers benefit the whole cohort and feed the FAQ.</li>
+        <li><b>Mentorship:</b> meet your faculty mentor at least monthly; escalate blockers to program leadership early.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= MONTH 1 ================= -->
+  <section class="tab" id="month1">
+    <div class="card">
+      <span class="pill new">Now open</span>
+      <h2 style="display:inline">Month 1 — September 2026: Orientation, Teams &amp; Needs Finding</h2>
+      <p style="margin-top:10px">Theme: <i>"A good problem is worth a hundred solutions."</i> This month is about setup and disciplined needs identification — not solutions yet. Competencies addressed: <b>#1</b> (digital health innovations).</p>
+
+      <h3>Learning objectives — by the end of this month you can:</h3>
+      <div class="obj"><b>1.</b> Explain the biodesign innovation cycle (identify → invent → implement) and where AI accelerates each phase.</div>
+      <div class="obj"><b>2.</b> Distinguish a well-characterized clinical <i>need statement</i> (population + problem + outcome) from a solution in disguise.</div>
+      <div class="obj"><b>3.</b> Apply Thiel's "zero to one" and Christensen's disruption frameworks to critique one existing digital health product.</div>
+      <div class="obj"><b>4.</b> Begin a literature and stakeholder discovery workflow using PubMed, ClinicalTrials.gov, Crunchbase, and FDA digital health reports.</div>
+
+      <h3>Assignments — due before the Month 2 session</h3>
+      <table class="simple">
+        <tr><th>Deliverable</th><th>Details</th><th>Due</th></tr>
+        <tr><td><span class="pill due">Due</span> 10 needs list</td><td>10 clinical, administrative, or workflow needs <b>per person</b>, each as a 1–2 sentence need statement (use the builder below).</td><td>Sep 25</td></tr>
+        <tr><td><span class="pill due">Due</span> Team &amp; mentor form</td><td>Team of 3–4 + at least one faculty mentor identified; request ad hoc mentors from leadership if needed.</td><td>Sep 25</td></tr>
+        <tr><td><span class="pill due">Due</span> Setup checklist</td><td>LinkedIn profile · shared Google Drive access · clinical immersion site confirmed · IRB templates reviewed (if applicable).</td><td>Sep 18</td></tr>
+      </table>
+      <p class="small">AI assist this month: use an LLM to cluster and prioritize your 10 needs by frequency, severity, and addressability — bring the prompt + output to the session.</p>
+
+      <h3>📎 This month's templates &amp; materials</h3>
+      <div class="mats">
+        <div class="mat" title="Lives in the repo /materials folder">📄 Needs Statement Template.docx <span>· fill one per need</span></div>
+        <div class="mat" title="Lives in the repo /materials folder">📄 Needs Statement — worked example (PDI classification tool) <span>· see what "done" looks like</span></div>
+        <div class="mat" title="Lives in the repo /materials folder">📕 HealthTech Venture Blueprint <span>· visual playbook, skim pp. 1–3</span></div>
+      </div>
+      <div class="concepts" style="margin-top:10px">
+        <div class="concept"><b>💡 The Health-Tech Paradox</b>A good clinical idea does not equal a good business — 42% of clinical startups fail for one reason: no market need. That's why this month is about finding real needs, not solutions.</div>
+      </div>
+      <p class="small" style="margin-top:8px">All templates live in the program repository's /materials folder — one place, always current. Discovery databases: PubMed, Google Scholar, ClinicalTrials.gov, Crunchbase, USPTO, FDA Digital Health reports.</p>
+    </div>
+
+    <!-- INTERACTIVE: assigned readings -->
+    <div class="card">
+      <h2>📚 Assigned Readings &amp; Media <span class="small">(interactive — mark each as done, then answer its key question)</span></h2>
+      <p class="small" id="readtext">0 of 4 completed</p>
+      <div class="bar"><span id="readfill"></span></div>
+
+      <div class="reading" id="r1">
+        <div class="rhead">
+          <div><span class="pill read">Read</span> <b>Zero to One</b> — Peter Thiel · Ch. 1–4 <span class="small">(finish book by end of Month 2)</span></div>
+          <button class="rbtn" type="button">Mark as read</button>
+        </div>
+        <p class="small"><b>Why this reading:</b> frames innovation as creating something new (0→1) rather than copying what exists (1→n) — the mindset you need before picking a project.</p>
+        <details><summary>Key question — click to reflect, then post your answer in the discussion below</summary>
+          <p class="small" style="margin-top:6px">Thiel asks: <i>"What important truth do very few people agree with you on?"</i> Answer it for healthcare in the Bronx — what do you believe about care delivery here that most of your colleagues would push back on?</p>
+        </details>
+      </div>
+
+      <div class="reading" id="r2">
+        <div class="rhead">
+          <div><span class="pill read">Read</span> <b>The Innovator's Dilemma</b> — Clay Christensen · Intro + Ch. 1</div>
+          <button class="rbtn" type="button">Mark as read</button>
+        </div>
+        <p class="small"><b>Why this reading:</b> explains why large, well-run institutions (like health systems) systematically miss disruptive technologies — and how innovators exploit that.</p>
+        <details><summary>Key question</summary>
+          <p class="small" style="margin-top:6px">Christensen shows disk-drive leaders failing because they listened <i>too well</i> to their best customers. What is the healthcare equivalent of "listening too well to your best customers" at an academic medical center?</p>
+        </details>
+      </div>
+
+      <div class="reading" id="r3">
+        <div class="rhead">
+          <div><span class="pill read">Read</span> <b>NEJM Catalyst</b> — <i>The Clinician Role in Health Care Delivery and Innovation</i></div>
+          <button class="rbtn" type="button">Mark as read</button>
+        </div>
+        <p class="small"><b>Why this reading:</b> argues clinicians are uniquely positioned to spot the needs that matter — the premise of this entire program.</p>
+        <details><summary>Key question</summary>
+          <p class="small" style="margin-top:6px">The article describes barriers that keep clinicians from innovating. Which barrier is most real in your own department, and what would remove it?</p>
+        </details>
+      </div>
+
+      <div class="reading" id="r4">
+        <div class="rhead">
+          <div><span class="pill read">Listen</span> <a href="https://anchor.fm/montebiodesign" target="_blank">Innovation Biodesign Podcast</a> — "Digital Health Innovation and Biodesign"</div>
+          <button class="rbtn" type="button">Mark as done</button>
+        </div>
+        <p class="small"><b>Why this episode:</b> hear how past Montefiore Einstein teams moved from need to prototype — the same path you'll follow this year.</p>
+        <details><summary>Key question</summary>
+          <p class="small" style="margin-top:6px">Which mistake mentioned by past teams do you think your team is most at risk of repeating — and what guardrail will you set this month?</p>
+        </details>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE: featured videos -->
+    <div class="card">
+      <h2>▶️ Watch This Month <span class="small">(from the program video library — domain: Needs Identification &amp; Screening)</span></h2>
+      <p><b>Featured: The Innovation Biodesign Process</b> — watch before the Month 1 session; it walks the exact identify → invent → implement cycle your project will follow.</p>
+      <a href="https://youtu.be/yFmhmKck1_s" target="_blank" style="display:block; position:relative; border-radius:10px; overflow:hidden; border:1px solid var(--line); margin-bottom:12px; line-height:0; background:linear-gradient(135deg,var(--navy),var(--blue)); aspect-ratio:16/9;">
+        <img src="https://img.youtube.com/vi/yFmhmKck1_s/hqdefault.jpg" alt="Seminar #1 — The Innovation Biodesign Process" style="width:100%; height:100%; object-fit:cover; display:block;" onerror="this.style.display='none'">
+        <span style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:74px; height:52px; background:rgba(0,48,92,.88); border-radius:14px; display:flex; align-items:center; justify-content:center;">
+          <span style="width:0; height:0; border-style:solid; border-width:13px 0 13px 22px; border-color:transparent transparent transparent #ffffff; margin-left:5px;"></span>
+        </span>
+        <span style="position:absolute; left:0; right:0; bottom:0; background:linear-gradient(transparent, rgba(0,0,0,.75)); color:#fff; font-size:.9rem; line-height:1.4; padding:18px 14px 10px; font-weight:600;">▶ Watch on YouTube — Seminar #1: The Innovation Biodesign Process (54 min)</span>
+      </a>
+      <details><summary style="cursor:pointer; font-weight:600; color:var(--blue);">While you watch — 2 things to listen for</summary>
+        <ul class="small" style="margin-top:8px">
+          <li>How does the presenter decide a need is worth pursuing <i>before</i> any solution is discussed?</li>
+          <li>Which screening step do you predict your team will find hardest — and why? (Post your answer in the discussion below.)</li>
+        </ul>
+      </details>
+      <h3>Also recommended this month</h3>
+      <ul>
+        <li><a href="https://youtu.be/Jf7zgXc_uGw" target="_blank">Seminar #29 — Lessons from a Serial Entrepreneur (2024)</a></li>
+        <li><a href="https://youtu.be/dDLBEbwiLro" target="_blank">Needs Assessment and Screening — elective session (2023)</a></li>
+        <li><a href="https://youtu.be/PB6Kr6VQETQ" target="_blank">Cases/Exercises: Needs Assessment (2025)</a></li>
+        <li><a href="https://youtu.be/Rit0YKRBlEg" target="_blank">Lab Meeting #1 — Early Innovation Project Ideation</a></li>
+      </ul>
+      <p class="small">Browse all 100+ program videos and podcasts, organized by biodesign domain, in the <b>🎥 Video Library</b> tab.</p>
+    </div>
+
+    <!-- INTERACTIVE: progress checklist -->
+    <div class="card">
+      <h2>✅ My Month 1 Checklist <span class="small">(interactive — click to track your progress)</span></h2>
+      <div class="bar"><span id="barfill"></span></div>
+      <p class="small" id="bartext">0 of 6 complete</p>
+      <label class="check"><input type="checkbox" class="ck"> Created/updated LinkedIn profile and confirmed shared Google Drive access</label>
+      <label class="check"><input type="checkbox" class="ck"> Identified team (3–4 members) and at least one faculty mentor</label>
+      <label class="check"><input type="checkbox" class="ck"> Read Zero to One Ch. 1–4 and Innovator's Dilemma Intro + Ch. 1</label>
+      <label class="check"><input type="checkbox" class="ck"> Drafted 10 need statements (use the builder below)</label>
+      <label class="check"><input type="checkbox" class="ck"> Confirmed clinical immersion site and schedule</label>
+      <label class="check"><input type="checkbox" class="ck"> Ran the AI-assist exercise: clustered and prioritized my 10 needs with an LLM</label>
+      
+    </div>
+
+    <!-- INTERACTIVE: needs statement builder -->
+    <div class="card">
+      <h2>🛠️ Need Statement Builder <span class="small">(interactive)</span></h2>
+      <p>A strong biodesign need statement has three parts and <b>no embedded solution</b>. Fill in the blanks and check your statement:</p>
+      <div class="builder">
+        <label>1 · Population — who has the problem?</label>
+        <input id="nb-pop" placeholder="e.g., adults with poorly controlled asthma in the Bronx">
+        <label>2 · Problem — what is going wrong? (no solutions!)</label>
+        <input id="nb-prob" placeholder="e.g., frequently miss early warning signs of exacerbations between clinic visits">
+        <label>3 · Outcome — what measurable change would define success?</label>
+        <input id="nb-out" placeholder="e.g., reduce asthma-related ED visits">
+        <button id="nb-btn" type="button">Build my need statement</button>
+      </div>
+      <div class="needout" id="nb-result"></div>
+    </div>
+
+    <!-- INTERACTIVE: knowledge check -->
+    <div class="card quiz">
+      <h2>🧠 Quick Knowledge Check <span class="small">(3 questions, instant feedback)</span></h2>
+      <div class="q">
+        <p>1. Which of these is a well-formed biodesign <i>need statement</i>?</p>
+        <div class="opts">
+          <button data-ok="0">"We need an app that reminds diabetic patients to check their glucose."</button>
+          <button data-ok="1">"A way to help adults with T2DM who miss glucose checks achieve better glycemic control."</button>
+          <button data-ok="0">"AI chatbots are the future of diabetes management."</button>
+        </div>
+        <div class="expl">A need statement names a population, a problem, and an outcome — and never embeds a solution. "An app that…" is a solution in disguise.</div>
+      </div>
+      <div class="q">
+        <p>2. In Christensen's framework, a <i>disruptive</i> innovation typically starts by…</p>
+        <div class="opts">
+          <button data-ok="0">Outperforming incumbents on the metrics mainstream customers value most</button>
+          <button data-ok="1">Serving overlooked segments with a simpler, cheaper offering, then moving upmarket</button>
+          <button data-ok="0">Winning through superior marketing budgets</button>
+        </div>
+        <div class="expl">Disruptors gain a foothold in low-end or new-market segments that incumbents ignore, then improve until they displace them.</div>
+      </div>
+      <div class="q">
+        <p>3. Thiel's "zero to one" question for any new venture is essentially:</p>
+        <div class="opts">
+          <button data-ok="1">"What valuable company is nobody building — what truth do few agree with you on?"</button>
+          <button data-ok="0">"How can we copy what works elsewhere and execute it better?"</button>
+          <button data-ok="0">"How fast can we reach profitability?"</button>
+        </div>
+        <div class="expl">Going from 0→1 means creating something new rather than iterating on what exists (1→n) — grounded in a contrarian insight.</div>
+      </div>
+      <p class="small" id="quizscore"></p>
+    </div>
+
+    <!-- INTERACTIVE: poll -->
+    <div class="card">
+      <h2>📊 Cohort Pulse <span class="small">(one-click poll — see where the cohort is heading)</span></h2>
+      <p><b>Which area are your strongest needs coming from so far?</b></p>
+      <div class="poll" id="poll">
+        <button type="button" data-i="0"><span class="plabel">Clinical / patient-facing care gaps</span><span class="pbar"><span></span></span><span class="pct"></span></button>
+        <button type="button" data-i="1"><span class="plabel">Provider workflow &amp; documentation burden</span><span class="pbar"><span></span></span><span class="pct"></span></button>
+        <button type="button" data-i="2"><span class="plabel">Administrative / operations / access</span><span class="pbar"><span></span></span><span class="pct"></span></button>
+        <button type="button" data-i="3"><span class="plabel">Patient engagement &amp; health equity</span><span class="pbar"><span></span></span><span class="pct"></span></button>
+      </div>
+      <p class="small" id="pollmsg">14 classmates have voted — cast yours to see the results.</p>
+    </div>
+
+    <!-- INTERACTIVE: discussion -->
+    <div class="card">
+      <h2>💬 Month 1 Virtual Discussion</h2>
+      <div class="callout" style="margin-bottom:14px"><b>This week's prompt:</b> Post your answer to one of the reading "key questions" above, <i>or</i> share one surprising need you spotted during clinical immersion this week. Reply to at least one classmate before the Month 1 session.</div>
+      <p class="small">Posts are signed and visible to the whole cohort and program leadership.</p>
+      <div id="comments"><p class="small empty" id="m1empty">No posts yet — be the first to start the Month 1 thread.</p></div>
+      <form class="cform" id="cform">
+        <input type="text" id="cname" placeholder="Your name and role (e.g., J. Smith, Fellow)" required>
+        <textarea id="cbody" placeholder="Write a comment or question…" required></textarea>
+        <button type="submit">Post comment</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= MONTHS 2–9 (rendered from data) ================= -->
+  <section class="tab" id="month2"></section>
+  <section class="tab" id="month3"></section>
+  <section class="tab" id="month4"></section>
+  <section class="tab" id="month5"></section>
+  <section class="tab" id="month6"></section>
+  <section class="tab" id="month7"></section>
+  <section class="tab" id="month8"></section>
+  <section class="tab" id="month9"></section>
+
+  <!-- ================= VIDEO LIBRARY ================= -->
+  <section class="tab" id="videos">
+    <div class="card">
+      <h2>🎥 Video Library <span class="small" id="vidcount"></span></h2>
+      <p>Every program seminar, elective session, AI session, lab meeting, and podcast — organized by the biodesign domain where you'll need it. Each month's section also features its most relevant videos.</p>
+      <input type="search" id="vsearch" placeholder="Search videos… (e.g., market, IP, python, pitch)" style="font:inherit; width:100%; border:1px solid var(--line); border-radius:8px; padding:10px 14px; margin:6px 0 14px;">
+      <div id="vlib"></div>
+    </div>
+  </section>
+
+  <!-- ================= RESOURCES ================= -->
+  <section class="tab" id="resources">
+    <div class="card">
+      <h2>Program Resource Library</h2>
+      <p class="small">Everything from the shared drive and program site, organized by the stage where you'll need it. Each month's section links only what's relevant that month.</p>
+      <h3>Core books</h3>
+      <ul><li>Peter Thiel — <i>Zero to One</i> · Clay Christensen — <i>The Innovator's Dilemma</i></li></ul>
+      <h3>Biodesign &amp; digital health</h3>
+      <ul>
+        <li><a href="https://www.mckinsey.com/industries/healthcare-systems-and-services/our-insights/the-next-wave-of-healthcare-innovation-the-evolution-of-ecosystems" target="_blank">McKinsey — The Next Wave of Healthcare Innovation</a></li>
+        <li><a href="https://www2.deloitte.com/us/en/insights/industry/health-care/digital-health-technology.html" target="_blank">Deloitte — Global Digital Health Case Studies</a></li>
+      </ul>
+      <h3>Market assessment &amp; segmentation</h3>
+      <ul>
+        <li><a href="https://www.forbes.com/sites/alejandrocremades/2018/09/23/how-to-effectively-determine-your-market-size/" target="_blank">Forbes — How to Determine Your Market Size</a></li>
+        <li><a href="https://medium.com/startup-grind/your-market-size-is-only-a-fraction-of-what-you-think-it-is-f31f79cd1e95" target="_blank">Your Market Size Is Only a Fraction of What You Think</a></li>
+        <li><a href="https://medium.com/@Hurree/your-essential-guide-to-market-segmentation-c9ed17142ead" target="_blank">Essential Guide to Market Segmentation</a></li>
+      </ul>
+      <h3>Competitive analysis</h3>
+      <ul>
+        <li><a href="https://www.columnfivemedia.com/how-to-do-a-competitive-analysis-in-5-steps" target="_blank">Competitive Analysis in 5 Steps</a> · <a href="https://www.wordstream.com/blog/ws/2017/12/20/swot-analysis" target="_blank">SWOT How-To</a> · <a href="https://www.youtube.com/watch?v=OCnlArFuU-E" target="_blank">Porter's Five Forces (video)</a></li>
+      </ul>
+      <h3>Value proposition &amp; pitching</h3>
+      <ul>
+        <li><a href="https://hbr.org/2009/09/value-propositions-that-work.html" target="_blank">HBR — Value Propositions That Work</a> · <a href="https://slidebean.com/blog/airbnb-pitch-deck" target="_blank">Airbnb Pitch Deck</a> · Elevator pitch &amp; pitch deck templates (shared drive)</li>
+      </ul>
+      <h3>Seminars &amp; podcasts</h3>
+      <ul>
+        <li><a href="https://www.einsteinmed.edu/departments/medicine/innovation/seminars-podcasts/" target="_blank">Program seminar recordings</a> · <a href="https://anchor.fm/montebiodesign" target="_blank">Innovation Biodesign Podcast</a> · Shared Google Drive (cases, exercises, templates)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="tab" id="faq">
+    <div class="card">
+      <h2>FAQ <span class="small">(grows from your discussion questions)</span></h2>
+      <h3>Who can participate?</h3>
+      <p>The program is open to Montefiore Einstein faculty and fellows.</p>
+      <h3>How do I access AWS for my project?</h3>
+      <p>Review the AWS features relevant to your build, then contact program leadership to request access through the program's AWS grant.</p>
+      <h3>What goes in my pitch deck?</h3>
+      <p>Use the template in the shared drive. Key slides: needs assessment, stakeholder analysis, market assessment, competitive analysis.</p>
+      <h3>What if my project type has no template?</h3>
+      <p>Discuss with Dr. Jariwala and your project mentors — templates are added as new project types emerge.</p>
+      <h3>Who do I contact with questions or suggestions?</h3>
+      <p>Dr. Sunit P. Jariwala — <a href="mailto:sjariwal@montefiore.org">sjariwal@montefiore.org</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">Montefiore Einstein Innovation Biodesign Training Program · Questions or suggestions: Dr. Sunit P. Jariwala, <a href="mailto:sjariwal@montefiore.org">sjariwal@montefiore.org</a><br>A living syllabus on GitHub Pages — the whole year in one page, updated with a single commit.</div>
+</footer>
+
+<script>
+  // ===== Video library data (from Health Tech Innovation Video Mappings, June 2026) =====
+  var VID = [
+   // Problem space — Needs Identification and Screening
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Seminars', t:'Seminar #1 – The Innovation Biodesign Process (Sep 24, 2020)', u:'https://youtu.be/yFmhmKck1_s'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Seminars', t:'Seminar #12 – The Innovation Biodesign Process (Aug 26, 2021)', u:'https://youtu.be/HNKWp_wjGnU'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Seminars', t:'Seminar #24 – Innovation Biodesign: From Idea to Market 102 (Sep 15, 2022)', u:'https://youtu.be/PqUH-vpg9UA'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Seminars', t:'Seminar #29 – Lessons from a Serial Entrepreneur (Sep 13, 2024)', u:'https://youtu.be/Jf7zgXc_uGw'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Elective Sessions', t:'Session 2: Needs-Based Innovation Biodesign Process: Needs Assessment and Screening (Oct 13, 2023)', u:'https://youtu.be/dDLBEbwiLro'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Elective Sessions', t:'Session 2: Developing and Implementing Mobile Health Technologies (Oct 19, 2022)', u:'https://youtu.be/WfkWLlXtjyE'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Elective Sessions', t:'Session 2: Innovation Biodesign (Oct 15, 2021)', u:'https://youtu.be/Ivnf6EuTHvY'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Elective Sessions', t:'Session 3: Cases/Exercises: Innovation Biodesign and Needs Assessment (Oct 17, 2025)', u:'https://youtu.be/PB6Kr6VQETQ'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Elective Sessions', t:'Session 3: Cases/Exercises: Innovation Biodesign and Needs Assessment (Oct 2, 2024)', u:'https://youtu.be/0W-FUiyTC_o'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Elective Sessions', t:'Session 3: Cases/Exercises: Innovation Biodesign and Needs Assessment (Oct 18, 2023)', u:'https://youtu.be/aug9RFhGitI'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Elective Sessions', t:'Session 3: Cases: Innovation Biodesign and Needs Assessments (Oct 26, 2022)', u:'https://youtu.be/BbC0TqbahEA'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Elective Sessions', t:'Session 3: Innovation Biodesign Cases/Exercises/Readings (Oct 20, 2021)', u:'https://youtu.be/sK0q0ibFmxc'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Elective Sessions', t:'Session 7: Innovation Project Presentations (Nov 5, 2021)', u:'https://youtu.be/FBHJXd-0vfw'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'AI Sessions', t:'AI Session #1: Health Systems Science Course (Sep 12, 2024)', u:'https://youtu.be/UFpIlyj33nA'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'AI Sessions', t:'AI Session #9: Health Systems Science Course (Oct 23, 2025)', u:'https://youtu.be/wpM7xWwDUCw'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Lab Meetings', t:'Lab Meeting #1 – Early Innovation Project Ideation', u:'https://youtu.be/Rit0YKRBlEg'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Lab Meetings', t:'Lab Meeting #7 – Clinical Pain Points in Radiation Oncology', u:'https://youtu.be/TKVKmhU-ezA'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Podcasts', t:'Digital Care Delivery for Patients with Cancer (Jul 9, 2021)', u:'https://open.spotify.com/episode/1ME2TMItfRiGj3lst66EAr'},
+   {s:'Problem Space', d:'Needs Identification and Screening', m:'Months 1–3', c:'Podcasts', t:'Digital Health Technologies and Behavior Change (Apr 17, 2021)', u:'https://open.spotify.com/episode/3c57L9lHneA4YX7vBPfWsj'},
+   // Stakeholder Engagement and Iterative Feedback
+   {s:'Problem Space', d:'Stakeholder Engagement and Iterative Feedback', m:'Months 2–4', c:'Seminars', t:'Seminar #27 – Health Technology Innovation and Healthcare Leadership (Sep 21, 2023)', u:'https://youtu.be/IDwqFnYdvAc'},
+   {s:'Problem Space', d:'Stakeholder Engagement and Iterative Feedback', m:'Months 2–4', c:'Elective Sessions', t:'Session 4: Cases/Exercises: Innovation Biodesign and Market Assessment (Oct 22, 2025)', u:'https://youtu.be/BY5ksP1iI7A'},
+   {s:'Problem Space', d:'Stakeholder Engagement and Iterative Feedback', m:'Months 2–4', c:'Elective Sessions', t:'Session 4: Customer/Stakeholder Discovery, Market Assessment, Competitive Landscape (Oct 20, 2023)', u:'https://youtu.be/aqw0cqIZV7I'},
+   {s:'Problem Space', d:'Stakeholder Engagement and Iterative Feedback', m:'Months 2–4', c:'Elective Sessions', t:'Session 7: Customer/Stakeholder Discovery and Go to Market Strategy (Oct 31, 2025)', u:'https://youtu.be/WakmprM3_94'},
+   {s:'Problem Space', d:'Stakeholder Engagement and Iterative Feedback', m:'Months 2–4', c:'AI Sessions', t:'AI Session #1: Health Systems Science Course (Sep 12, 2024)', u:'https://youtu.be/UFpIlyj33nA'},
+   {s:'Problem Space', d:'Stakeholder Engagement and Iterative Feedback', m:'Months 2–4', c:'AI Sessions', t:'AI Session #9: Health Systems Science Course (Oct 23, 2025)', u:'https://youtu.be/wpM7xWwDUCw'},
+   {s:'Problem Space', d:'Stakeholder Engagement and Iterative Feedback', m:'Months 2–4', c:'Lab Meetings', t:'Lab Meeting #2 – Clinician-Founder Perspective on User Needs', u:'https://youtu.be/UNsqvO9nttY'},
+   {s:'Problem Space', d:'Stakeholder Engagement and Iterative Feedback', m:'Months 2–4', c:'Lab Meetings', t:'Lab Meeting #7 – Resident and Physicist Perspectives on Clinical Innovation', u:'https://youtu.be/TKVKmhU-ezA'},
+   {s:'Problem Space', d:'Stakeholder Engagement and Iterative Feedback', m:'Months 2–4', c:'Podcasts', t:'Social Media and Healthcare – Part 1 (Feb 2, 2021)', u:'https://open.spotify.com/episode/6riwhnsQaD7mtERLX8YGCm'},
+   {s:'Problem Space', d:'Stakeholder Engagement and Iterative Feedback', m:'Months 2–4', c:'Podcasts', t:'Social Media and Healthcare – Part 2 (Feb 21, 2021)', u:'https://open.spotify.com/episode/3Zl427Kckc96bSICjQ42Ua'},
+   {s:'Problem Space', d:'Stakeholder Engagement and Iterative Feedback', m:'Months 2–4', c:'Podcasts', t:'Innovation Biodesign: Expert Panel Discussion (Nov 5, 2021)', u:'https://open.spotify.com/episode/50nAEnLEhG7MKZB7kCwXWV'},
+   // Reviewing Existing Technologies and the Evidence-Based Literature
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'Seminars', t:'Seminar #2 – Digital Health Innovation (Oct 22, 2020)', u:'https://youtu.be/P4yu3XdWXEw'},
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'Seminars', t:'Seminar #3 – Digital Health Innovation: The Founders Panel (Nov 19, 2020)', u:'https://youtu.be/auQwLjC3fRQ'},
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'Seminars', t:'Seminar #13 – Digital Health Technologies (Sep 30, 2021)', u:'https://youtu.be/LuYpbNtXBI8'},
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'Seminars', t:'Seminar #25 – Digital Health Innovation: Opportunities to Transform Clinical Care (Nov 10, 2022)', u:'https://youtu.be/ZYU47qJu0ag'},
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'Seminars', t:'Seminar #26 – Digital Health Innovation (Feb 9, 2023)', u:'https://youtu.be/_419RVnbS1c'},
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'Elective Sessions', t:'Session 1: Elective Overview and Opportunities for Digital Health Innovation and Disruption (Oct 13, 2021)', u:'https://youtu.be/1sHrUGIz_LQ'},
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'Elective Sessions', t:'Session 1: Elective Overview and the Value of Digital Health Innovation (Oct 12, 2022)', u:'https://youtu.be/AEqk_2P2lfw'},
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'Elective Sessions', t:'Session 4: Digital Health Technologies (Oct 22, 2021)', u:'https://youtu.be/rbqIDhSo-y8'},
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'Elective Sessions', t:'Session 5: Digital Health Technologies Cases/Exercises/Readings (Oct 29, 2021)', u:'https://youtu.be/z1QzeViv0Q8'},
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'Elective Sessions', t:'Session 5: Emerging Health Technologies (Oct 11, 2024)', u:'https://youtu.be/ZAhTaAslvYE'},
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'AI Sessions', t:'AI Session #1: Health Systems Science Course (Sep 12, 2024)', u:'https://youtu.be/UFpIlyj33nA'},
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'AI Sessions', t:'AI Session #3: Bioethics Course (Nov 21, 2024)', u:'https://youtu.be/OotGtOUdAGk'},
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'Lab Meetings', t:'Lab Meeting #5 – AI Methods for Viral Detection', u:'https://youtu.be/3JYu9i3HDUQ'},
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'Lab Meetings', t:'Lab Meeting #3 – EHR Data Analysis and Digital Health Tool Design', u:'https://youtu.be/_7AwWFL0UFY'},
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'Podcasts', t:'Digital Health Technologies: Expert Panel Discussion (Dec 5, 2021)', u:'https://open.spotify.com/episode/3rKM05kKhdrHZUJosruLaA'},
+   {s:'Problem Space', d:'Reviewing Existing Technologies and the Evidence-Based Literature', m:'Months 2–3', c:'Podcasts', t:'Medical Device Innovation: Expert Panel Discussion (Feb 12, 2023)', u:'https://open.spotify.com/episode/1cHEfJFrrbiS5M4Br8dp8l'},
+   // Market Assessment and Competitive Landscape Analysis
+   {s:'Problem Space', d:'Market Assessment and Competitive Landscape Analysis', m:'Month 4', c:'Seminars', t:'Seminar #4 – Market Assessment, Value Chains, and Value Propositions (Dec 17, 2020)', u:'https://youtu.be/lg9DWnOWMjs'},
+   {s:'Problem Space', d:'Market Assessment and Competitive Landscape Analysis', m:'Month 4', c:'Seminars', t:'Seminar #14 – Market Assessment and Value Propositions (Oct 21, 2021)', u:'https://youtu.be/Zsd08PqYG0o'},
+   {s:'Problem Space', d:'Market Assessment and Competitive Landscape Analysis', m:'Month 4', c:'Seminars', t:'Seminar #20 – From Idea to Market (Apr 21, 2022)', u:'https://youtu.be/W_Gm3XKgFYc'},
+   {s:'Problem Space', d:'Market Assessment and Competitive Landscape Analysis', m:'Month 4', c:'Elective Sessions', t:'Session 5: Cases/Exercises – Market Assessment (Oct 25, 2023)', u:'https://youtu.be/yq_Q6qy-m-0'},
+   {s:'Problem Space', d:'Market Assessment and Competitive Landscape Analysis', m:'Month 4', c:'Elective Sessions', t:'Session 5: Cases/Exercises: Market Analysis and Building a Value Proposition (Oct 24, 2025)', u:'https://youtu.be/zwaW4OP6_ns'},
+   {s:'Problem Space', d:'Market Assessment and Competitive Landscape Analysis', m:'Month 4', c:'Elective Sessions', t:'Session 6: Cases/Exercises: Market Assessment (Oct 16, 2024)', u:'https://youtu.be/I_PmtJTGKDc'},
+   {s:'Problem Space', d:'Market Assessment and Competitive Landscape Analysis', m:'Month 4', c:'Elective Sessions', t:'Session 5: Innovation Project Presentations (Nov 4, 2022)', u:'https://youtu.be/czGZn-oRZQY'},
+   {s:'Problem Space', d:'Market Assessment and Competitive Landscape Analysis', m:'Month 4', c:'Elective Sessions', t:'Session 4: Cases: Market Assessment (Nov 2, 2022)', u:'https://youtu.be/2KDneE8fV_o'},
+   {s:'Problem Space', d:'Market Assessment and Competitive Landscape Analysis', m:'Month 4', c:'Elective Sessions', t:'Session 6: Market Assessment Cases/Exercises/Readings (Nov 3, 2021)', u:'https://youtu.be/mi74KDe28H8'},
+   {s:'Problem Space', d:'Market Assessment and Competitive Landscape Analysis', m:'Month 4', c:'Elective Sessions', t:'Session 7: Innovation Project Presentations (Nov 5, 2021)', u:'https://youtu.be/FBHJXd-0vfw'},
+   {s:'Problem Space', d:'Market Assessment and Competitive Landscape Analysis', m:'Month 4', c:'Lab Meetings', t:'Lab Meeting #6 – Entrepreneurial Strategy and Market Positioning', u:'https://youtu.be/AxOQ15Ehw2Y'},
+   {s:'Problem Space', d:'Market Assessment and Competitive Landscape Analysis', m:'Month 4', c:'Lab Meetings', t:'Lab Meeting #2 – Health Tech Startup Market Insights', u:'https://youtu.be/UNsqvO9nttY'},
+   {s:'Problem Space', d:'Market Assessment and Competitive Landscape Analysis', m:'Month 4', c:'Podcasts', t:'Market Assessments: Expert Panel Discussion (Oct 14, 2022)', u:'https://open.spotify.com/episode/7r2IxVoPXHB85K1q3wkH7i'},
+   // Solution space — Developing a Testable Prototype
+   {s:'Solution Space', d:'Developing a Testable Prototype', m:'Months 5–6', c:'Seminars', t:'Seminar #6 – Medical Device Innovation (Jan 28, 2021)', u:'https://youtu.be/LXxh3FxvHSU'},
+   {s:'Solution Space', d:'Developing a Testable Prototype', m:'Months 5–6', c:'Seminars', t:'Seminar #7 – An Introduction to Python for Health Tech Innovation (Feb 18, 2021)', u:'https://youtu.be/VfD97VQVJVs'},
+   {s:'Solution Space', d:'Developing a Testable Prototype', m:'Months 5–6', c:'Seminars', t:'Seminar #8 – Therapeutics Innovation (Feb 25, 2021)', u:'https://youtu.be/cyppg7G4GTY'},
+   {s:'Solution Space', d:'Developing a Testable Prototype', m:'Months 5–6', c:'Seminars', t:'Seminar #17 – Medical Device Innovation (Jan 20, 2022)', u:'https://youtu.be/DjaLOzczYQM'},
+   {s:'Solution Space', d:'Developing a Testable Prototype', m:'Months 5–6', c:'Seminars', t:'Seminar #30 – Medical Device Innovation (Nov 15, 2024)', u:'https://youtu.be/9qujI4qV13M'},
+   {s:'Solution Space', d:'Developing a Testable Prototype', m:'Months 5–6', c:'Elective Sessions', t:'Session 2: Developing, Implementing, Evaluating Mobile Health Technologies (Oct 10, 2025)', u:'https://youtu.be/D1vCPOAHdYU'},
+   {s:'Solution Space', d:'Developing a Testable Prototype', m:'Months 5–6', c:'Elective Sessions', t:'Session 2: Developing and Implementing Mobile Health Technologies (Sep 27, 2024)', u:'https://youtu.be/T4IdWHJMTcY'},
+   {s:'Solution Space', d:'Developing a Testable Prototype', m:'Months 5–6', c:'Lab Meetings', t:'Lab Meeting #3 – EHR Data Analysis and Digital Health Tool Design', u:'https://youtu.be/_7AwWFL0UFY'},
+   {s:'Solution Space', d:'Developing a Testable Prototype', m:'Months 5–6', c:'Lab Meetings', t:'Lab Meeting #1 – Initial Solution Design and Validation Concepts', u:'https://youtu.be/Rit0YKRBlEg'},
+   {s:'Solution Space', d:'Developing a Testable Prototype', m:'Months 5–6', c:'Podcasts', t:'An Introduction to Python for Health Tech Innovation (Sep 24, 2023)', u:'https://open.spotify.com/episode/1tw1BijnyK2sL8HlkiRlHq'},
+   // Planning and Launching a Pilot
+   {s:'Solution Space', d:'Planning and Launching a Pilot', m:'Months 6–7', c:'Elective Sessions', t:'Session 1: Leveraging AI for Digital Health Innovation and Enhanced Clinical Care (Oct 8, 2025)', u:'https://youtu.be/YVw_3hqa6Kk'},
+   {s:'Solution Space', d:'Planning and Launching a Pilot', m:'Months 6–7', c:'Elective Sessions', t:'Session 1: Leveraging AI for Digital Health Innovation and Enhanced Clinical Care (Sep 25, 2024)', u:'https://youtu.be/AKWNxBXjFao'},
+   {s:'Solution Space', d:'Planning and Launching a Pilot', m:'Months 6–7', c:'AI Sessions', t:'AI Session #4: Transition to Residency (Feb 2025)', u:'https://youtu.be/dyuE1sgIJLM'},
+   {s:'Solution Space', d:'Planning and Launching a Pilot', m:'Months 6–7', c:'Lab Meetings', t:'Lab Meeting #2 – Startup Deployment and Early Adoption Strategies', u:'https://youtu.be/UNsqvO9nttY'},
+   {s:'Solution Space', d:'Planning and Launching a Pilot', m:'Months 6–7', c:'Lab Meetings', t:'Lab Meeting #7 – Clinical Integration Considerations', u:'https://youtu.be/TKVKmhU-ezA'},
+   {s:'Solution Space', d:'Planning and Launching a Pilot', m:'Months 6–7', c:'Podcasts', t:'Innovation Biodesign: Ideas to Market (Jul 1, 2024)', u:'https://open.spotify.com/episode/64kqGSlKChoGGeyhvwO6BG'},
+   // Intellectual Property Considerations
+   {s:'Solution Space', d:'Intellectual Property Considerations', m:'Month 7', c:'Seminars', t:'Seminar #5 – Intellectual Property and Regulatory Considerations (Jan 14, 2021)', u:'https://youtu.be/8vIt4EXP7Mw'},
+   {s:'Solution Space', d:'Intellectual Property Considerations', m:'Month 7', c:'Seminars', t:'Seminar #15 – Intellectual Property and Regulatory Considerations (Nov 18, 2021)', u:'https://youtu.be/6SwgX4KNDEQ'},
+   {s:'Solution Space', d:'Intellectual Property Considerations', m:'Month 7', c:'Elective Sessions', t:'Session 4: Intellectual Property and Health Technology Innovation (Oct 9, 2024)', u:'https://youtu.be/JZmn3drK43E'},
+   {s:'Solution Space', d:'Intellectual Property Considerations', m:'Month 7', c:'Podcasts', t:'Intellectual Property and Regulatory Considerations: Expert Panel (Jan 4, 2023)', u:'https://open.spotify.com/episode/6q7yDExy1aO2shgTBBlZYE'},
+   // Solution Implementation and Evaluation
+   {s:'Solution Space', d:'Solution Implementation and Evaluation', m:'Months 7–8', c:'Seminars', t:'Seminar #10 – Financial Operations and Health Technology Innovation (Apr 22, 2021)', u:'https://youtu.be/x9No0P_RPM0'},
+   {s:'Solution Space', d:'Solution Implementation and Evaluation', m:'Months 7–8', c:'Seminars', t:'Seminar #16 – Technology Validation and Key Performance (Dec 16, 2021)', u:'https://youtu.be/svkRoaK3FOk'},
+   {s:'Solution Space', d:'Solution Implementation and Evaluation', m:'Months 7–8', c:'Seminars', t:'Seminar #18 – Funding and Project Sustainability (Feb 17, 2022)', u:'https://youtu.be/x4e7m-gD_eQ'},
+   {s:'Solution Space', d:'Solution Implementation and Evaluation', m:'Months 7–8', c:'Seminars', t:'Seminar #22 – Financial Accounting and Valuation 101 (Jun 16, 2022)', u:'https://youtu.be/ndY_HI4FDy8'},
+   {s:'Solution Space', d:'Solution Implementation and Evaluation', m:'Months 7–8', c:'AI Sessions', t:'AI Session #4: Transition to Residency (Feb 2025)', u:'https://youtu.be/dyuE1sgIJLM'},
+   {s:'Solution Space', d:'Solution Implementation and Evaluation', m:'Months 7–8', c:'Lab Meetings', t:'Lab Meeting #3 – Evaluating Digital Health Tools Using EHR Data', u:'https://youtu.be/_7AwWFL0UFY'},
+   {s:'Solution Space', d:'Solution Implementation and Evaluation', m:'Months 7–8', c:'Lab Meetings', t:'Lab Meeting #5 – AI Model Performance in Biomedical Applications', u:'https://youtu.be/3JYu9i3HDUQ'},
+   {s:'Solution Space', d:'Solution Implementation and Evaluation', m:'Months 7–8', c:'Podcasts', t:'Digital Health Innovation During the COVID-19 Pandemic (Jun 26, 2021)', u:'https://open.spotify.com/episode/3tHdhZ3Ylk0JD5MJLEOneJ'},
+   // Driving Impact and Sustainability through Dissemination
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'Seminars', t:'Seminar #9 – Funding and Project Sustainability (Mar 25, 2021)', u:'https://youtu.be/dGpgSs0r3vU'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'Seminars', t:'Seminar #11 – End of Year Pitch Presentations (Jun 24, 2021)', u:'https://youtu.be/Fdfn3I1UlH0'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'Seminars', t:'Seminar #19 – How to Create and Build Health Tech Startups (Mar 31, 2022)', u:'https://youtu.be/XeEdVLwOxQI'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'Seminars', t:'Seminar #21 – Strategic Partnerships (May 26, 2022)', u:'https://youtu.be/ITZ57yuwvpU'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'Seminars', t:'Seminar #23 – End of Year Pitch Presentations (Jun 23, 2022)', u:'https://youtu.be/Mg_59exgT8I'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'Seminars', t:'Seminar #28 – End of Year Pitch Presentations (Jun 20, 2024)', u:'https://youtu.be/hmuWRU-1yUM'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'Seminars', t:'Seminar #31 – End of Year Pitch Presentations (Jun 26, 2025)', u:'https://youtu.be/JSLFhyk9Wnw'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'Elective Sessions', t:'Session 7: Creating and Sustaining a Company 102 (Nov 1, 2023)', u:'https://youtu.be/kIlrpM2HBl4'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'AI Sessions', t:'AI Session #3: Bioethics Course (Nov 21, 2024)', u:'https://youtu.be/OotGtOUdAGk'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'AI Sessions', t:'AI Session #10: Bioethics Course (Oct 30, 2025)', u:'https://youtu.be/L2-gEnwEb_g'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'Lab Meetings', t:'Lab Meeting #4 – Funding Infrastructure for Scaling Innovation', u:'https://youtu.be/b8HrgWePNKk'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'Lab Meetings', t:'Lab Meeting #6 – Sustaining and Scaling Health Tech Companies', u:'https://youtu.be/AxOQ15Ehw2Y'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'Podcasts', t:'Funding and Health Tech Innovation Project Sustainability (Oct 30, 2023)', u:'https://open.spotify.com/episode/22D2pmmxIjJYG4Jfeis4oQ'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'Podcasts', t:'How to Create and Build Health Tech Startups (Jan 26, 2026)', u:'https://open.spotify.com/episode/4VD3GzhIbW92qNJER3LvDm'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'Podcasts', t:'Financial Accounting and Valuation 101 (Aug 18, 2025)', u:'https://open.spotify.com/episode/6H8rmdCHMPH0T48kj4P4D3'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'Podcasts', t:'Tech Valuation and Key Performance Indicators (Oct 3, 2025)', u:'https://open.spotify.com/episode/6WUf0sCf1ORU3CWtsw0YuK'},
+   {s:'Solution Space', d:'Driving Impact and Sustainability through Dissemination', m:'Months 8–9', c:'Podcasts', t:'Financial Operations and Health Technology Innovation (Dec 27, 2023)', u:'https://open.spotify.com/episode/18Moevzb9vDEfmF6n5BjQ0'}
+  ];
+
+  // render video library grouped by space → domain → category, with live search
+  function renderVids(filter){
+    var q = (filter||'').toLowerCase();
+    var wrap = document.getElementById('vlib');
+    wrap.innerHTML = '';
+    var shown = 0;
+    ['Problem Space','Solution Space'].forEach(function(space){
+      var domains = [];
+      VID.forEach(function(v){ if(v.s===space && domains.indexOf(v.d)<0) domains.push(v.d); });
+      var spaceHasContent = false;
+      var sh = document.createElement('h3');
+      sh.textContent = (space==='Problem Space' ? '🔍 ' : '🛠️ ') + space;
+      sh.style.cssText = 'font-size:1.05rem; color:var(--navy); margin:18px 0 8px; border-bottom:2px solid var(--lightblue); padding-bottom:4px;';
+      wrap.appendChild(sh);
+      domains.forEach(function(dom){
+        var items = VID.filter(function(v){ return v.s===space && v.d===dom && (!q || (v.t+' '+v.d+' '+v.c).toLowerCase().indexOf(q)>=0); });
+        if(!items.length) return;
+        spaceHasContent = true;
+        shown += items.length;
+        var det = document.createElement('details');
+        if(q) det.open = true;
+        det.style.cssText = 'border:1px solid var(--line); border-radius:10px; padding:12px 16px; margin-bottom:10px; background:#fff;';
+        var sum = document.createElement('summary');
+        sum.style.cssText = 'cursor:pointer; font-weight:700; color:var(--blue);';
+        var monthTag = items[0].m;
+        sum.innerHTML = dom + ' <span class="small" style="font-weight:400">· ' + items.length + ' items · ' + monthTag + '</span>';
+        det.appendChild(sum);
+        var cats = [];
+        items.forEach(function(v){ if(cats.indexOf(v.c)<0) cats.push(v.c); });
+        cats.forEach(function(cat){
+          var ch = document.createElement('div');
+          ch.className = 'small';
+          ch.style.cssText = 'font-weight:700; color:var(--navy); margin:10px 0 4px; text-transform:uppercase; letter-spacing:.04em;';
+          ch.textContent = cat;
+          det.appendChild(ch);
+          items.filter(function(v){return v.c===cat;}).forEach(function(v){
+            var row = document.createElement('div');
+            row.style.cssText = 'padding:4px 0 4px 10px; border-left:3px solid var(--lightblue); margin-bottom:4px; font-size:.9rem;';
+            var a = document.createElement('a');
+            a.href = v.u; a.target = '_blank'; a.textContent = v.t;
+            row.appendChild(a);
+            det.appendChild(row);
+          });
+        });
+        wrap.appendChild(det);
+      });
+      if(!spaceHasContent) sh.remove();
+    });
+    document.getElementById('vidcount').textContent = '(' + (q ? shown + ' matching' : VID.length + ' curated videos & podcasts') + ')';
+    if(q && !shown){ wrap.innerHTML = '<p class="small">No videos match "' + filter.replace(/</g,'&lt;') + '" — try a broader term like "market" or "device".</p>'; }
+  }
+  renderVids('');
+  document.getElementById('vsearch').addEventListener('input', function(){ renderVids(this.value.trim()); });
+
+  // tab switching
+  document.querySelectorAll('nav.tabs button[data-tab]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('nav.tabs button').forEach(function(b){b.classList.remove('active');});
+      document.querySelectorAll('section.tab').forEach(function(s){s.classList.remove('active');});
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({top:0});
+    });
+  });
+
+  // readings: mark as read
+  var rbtns = document.querySelectorAll('.rbtn');
+  function updReads(){
+    var done = document.querySelectorAll('.rbtn.on').length;
+    document.getElementById('readfill').style.width = (done/rbtns.length*100) + '%';
+    document.getElementById('readtext').textContent = done + ' of ' + rbtns.length + ' completed' + (done===rbtns.length ? ' — all readings done! 🎉' : '');
+  }
+  rbtns.forEach(function(b){
+    b.addEventListener('click', function(){
+      b.classList.toggle('on');
+      b.textContent = b.classList.contains('on') ? '✓ Done' : 'Mark as read';
+      b.closest('.reading').classList.toggle('readdone', b.classList.contains('on'));
+      updReads();
+    });
+  });
+
+  // poll (seeded demo numbers + your vote)
+  var pollVotes = [4, 5, 2, 3], voted = false;
+  document.querySelectorAll('.poll button').forEach(function(b){
+    b.addEventListener('click', function(){
+      if(voted) return;
+      voted = true;
+      pollVotes[+b.dataset.i]++;
+      b.classList.add('chosen');
+      var total = pollVotes.reduce(function(a,c){return a+c;},0);
+      document.querySelectorAll('.poll button').forEach(function(btn,i){
+        var pct = Math.round(pollVotes[i]/total*100);
+        btn.querySelector('.pbar span').style.width = pct + '%';
+        btn.querySelector('.pct').textContent = pct + '%';
+      });
+      document.getElementById('pollmsg').textContent = 'Thanks for voting — ' + total + ' responses so far. Results update live for the whole cohort.';
+    });
+  });
+
+  // discussion: reply threads
+  function addReplyUI(comment){
+    if(comment.querySelector('.replybtn')) return;
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'replybtn'; btn.textContent = 'Reply';
+    btn.addEventListener('click', function(){
+      if(comment.querySelector('.rform')){ comment.querySelector('.rform').remove(); return; }
+      var f = document.createElement('form'); f.className = 'rform';
+      var n = document.createElement('input'); n.placeholder = 'Your name and role'; n.required = true;
+      var t = document.createElement('textarea'); t.placeholder = 'Write a reply…'; t.required = true;
+      var s = document.createElement('button'); s.type = 'submit'; s.textContent = 'Post reply';
+      f.appendChild(n); f.appendChild(t); f.appendChild(s);
+      f.addEventListener('submit', function(e){
+        e.preventDefault();
+        if(!n.value.trim() || !t.value.trim()) return;
+        var d = makeComment(n.value.trim(), t.value.trim());
+        d.classList.add('reply');
+        comment.insertAdjacentElement('afterend', d);
+        addReplyUI(d);
+        f.remove();
+      });
+      comment.appendChild(f);
+      n.focus();
+    });
+    comment.appendChild(btn);
+  }
+  function makeComment(name, body){
+    var d = document.createElement('div'); d.className = 'comment';
+    var who = document.createElement('span'); who.className='who'; who.textContent = name;
+    var when = document.createElement('span'); when.className='when'; when.textContent = 'just now';
+    var b = document.createElement('div'); b.className='body'; b.textContent = body;
+    d.appendChild(who); d.appendChild(when); d.appendChild(b);
+    return d;
+  }
+  document.querySelectorAll('#comments .comment').forEach(addReplyUI);
+
+  // checklist progress (in-memory)
+  var cks = document.querySelectorAll('.ck');
+  cks.forEach(function(ck){
+    ck.addEventListener('change', function(){
+      ck.closest('.check').classList.toggle('donec', ck.checked);
+      var done = document.querySelectorAll('.ck:checked').length;
+      document.getElementById('barfill').style.width = (done/cks.length*100) + '%';
+      document.getElementById('bartext').textContent = done + ' of ' + cks.length + ' complete' + (done===cks.length ? ' — Month 1 done! 🎉' : '');
+    });
+  });
+
+  // need statement builder
+  document.getElementById('nb-btn').addEventListener('click', function(){
+    var pop = document.getElementById('nb-pop').value.trim();
+    var prob = document.getElementById('nb-prob').value.trim();
+    var out = document.getElementById('nb-out').value.trim();
+    var box = document.getElementById('nb-result');
+    if(!pop || !prob || !out){ box.style.display='block'; box.textContent='Please fill in all three parts — population, problem, and outcome.'; return; }
+    var solutionWords = /\b(app|apps|application|chatbot|ai tool|device|platform|software|dashboard|wearable|website|portal)\b/i;
+    var warn = solutionWords.test(prob) ? ' ⚠️ Your problem contains a solution word (app/device/platform…). Reframe it as the underlying problem — the solution comes in Month 5!' : ' ✅ No embedded solution detected — nice.';
+    box.style.display='block';
+    box.innerHTML = '<b>Your need statement:</b><br>“A way to address <i>' + prob.replace(/</g,'&lt;') + '</i> in <i>' + pop.replace(/</g,'&lt;') + '</i> in order to <i>' + out.replace(/</g,'&lt;') + '</i>.”<br><span class="small">' + warn + ' Save it to your 10-needs template in the shared drive.</span>';
+  });
+
+  // quiz
+  var answered = 0, correct = 0;
+  document.querySelectorAll('.quiz .q').forEach(function(q){
+    var done = false;
+    q.querySelectorAll('.opts button').forEach(function(b){
+      b.addEventListener('click', function(){
+        if(done) return;
+        done = true; answered++;
+        if(b.dataset.ok === '1'){ b.classList.add('right'); correct++; }
+        else {
+          b.classList.add('wrong');
+          q.querySelector('[data-ok="1"]').classList.add('right');
+        }
+        q.querySelector('.expl').style.display='block';
+        if(answered === 3){
+          document.getElementById('quizscore').textContent = 'Score: ' + correct + '/3' + (correct===3 ? ' — you’re ready for the Month 1 session! 🎉' : ' — review the readings above and try again next visit.');
+        }
+      });
+    });
+  });
+
+  // ===== Months 2–9: rendered from data (materials mapped from program files) =====
+  var MONTHS = [
+   {id:'month2', title:'Month 2 — October 2026: Needs Screening & Discovery', comps:'#1, #2', theme:'From 10 needs to your top 3 — screened against the literature, existing technologies, and real stakeholders.',
+    obj:['Screen your 10 needs down to your team’s top 3 using frequency × severity × addressability.','Run a structured literature review (PubMed, Google Scholar) and existing-technology scan (app stores, ClinicalTrials.gov, USPTO) for each finalist need.','Conduct and document your first stakeholder interviews using the feedback session template.','Audit your needs against the classic pitfalls of health tech innovation.'],
+    mile:[['Top 3 needs + screening matrix','One completed Needs Statement Template section per finalist need','Oct 23'],['First 3 stakeholder interviews','Documented with the feedback session template (10 total required by Month 3)','Oct 30'],['Existing-tech scan','App stores, ClinicalTrials.gov, USPTO search logged per need','Oct 30'],['IRB started (if applicable)','Review IRB templates; discuss with program leadership','Oct 30']],
+    mats:[['📄 Needs Statement Template.docx','sections 2–6: market, competitive, stakeholder screening'],['📋 Tip Sheet — The Pitfalls of Health Tech Innovation','lessons from 10 Montefiore innovators'],['📝 Stakeholder feedback session template','shared drive']],
+    conc:[['🪤 Avoid the "solution-first" trap','Trust the biodesign process: identify the exact "what" before engineering the "how" (Dr. Yaeger’s first rule).'],['🤝 Innovation is a team sport','Recruit coding, finance, and design expertise to cover your clinical blind spots.']],
+    vids:[['Seminar #27 — Health Technology Innovation and Healthcare Leadership','https://youtu.be/IDwqFnYdvAc'],['Needs Assessment and Screening — elective session (2023)','https://youtu.be/dDLBEbwiLro'],['Seminar #2 — Digital Health Innovation','https://youtu.be/P4yu3XdWXEw'],['Lab Meeting #2 — Clinician-Founder Perspective on User Needs','https://youtu.be/UNsqvO9nttY']],
+    ask:'Post your screening matrix’s biggest surprise — which need looked strong but failed screening, and why?'},
+   {id:'month3', title:'Month 3 — November 2026: Problem Statement & Elevator Pitch', comps:'#1', theme:'One validated need, stated so clearly that anyone understands why it matters — in 60 seconds.',
+    obj:['Finalize one need into a full problem statement (population, problem, measurable outcome).','Deliver a 60-second elevator pitch using the program template.','Apply "validate the problem, not the product" in stakeholder interviews — no demos during discovery.','Complete all 10 required stakeholder interviews.'],
+    mile:[['Final problem statement','Approved by your faculty mentor','Nov 13'],['Elevator pitch draft','Built on the Elevator Pitch Template; practiced live in session','Nov 20'],['10 stakeholder interviews complete','All documented; themes summarized for your Project Statement','Nov 30']],
+    mats:[['📊 Elevator Pitch Template.ppt','the program’s official pitch scaffold'],['📄 Needs Statement — worked example','a completed statement (PDI classification tool) to model']],
+    conc:[['🔥 The "Hair on Fire" test','Prioritize problems that are existential crises for customers, not nice-to-have improvements.'],['🚫 Validate the problem, not the product','Never demo during discovery; focus on pain points and current workflows.']],
+    vids:[['Seminar #12 — The Innovation Biodesign Process','https://youtu.be/HNKWp_wjGnU'],['Customer/Stakeholder Discovery and Go to Market Strategy','https://youtu.be/WakmprM3_94'],['Cases/Exercises and Discussion of Readings','https://youtu.be/sK0q0ibFmxc'],['Innovation Project Presentations','https://youtu.be/FBHJXd-0vfw']],
+    ask:'Post your 60-second elevator pitch text here for asynchronous feedback — comment on at least one teammate’s pitch.'},
+   {id:'month4', title:'Month 4 — December 2026: Market Assessment & Competitive Landscape', comps:'#2', theme:'AI-enabled market sizing and a hard look at the competition — is this a real business?',
+    obj:['Produce a top-down and bottom-up market size: TAM, SAM, and SOM.','Segment the market and identify your beachhead segment.','Complete a SWOT and Porter’s Five Forces analysis.','Map the hospital procurement chain: users, influencers, deciders — and saboteurs.'],
+    mile:[['Market sizing (TAM/SAM/SOM)','Top-down + bottom-up, AI-assisted, with defensible sources','Dec 11'],['Competitive matrix + Porter’s Five Forces','Template in shared drive','Dec 18'],['Value proposition draft','Based on stakeholder themes and market gap','Dec 18']],
+    mats:[['📕 HealthTech Venture Blueprint','market assessment chapters of the visual playbook'],['📝 Porter’s Five Forces template','shared drive']],
+    conc:[['🎯 TAM → SAM → SOM','Airbnb example: 1.9B trips worldwide (TAM) → trips booked online (SAM) → realistic share (SOM). Know all three numbers cold.'],['💰 The Billion-Dollar Benchmark','To attract venture capital, the target market should generally exceed $1B in potential.'],['⚠️ The 42% Failure Rule','42% of startups fail because there is no market need — this month is where you prove yours exists.'],['🕵️ Saboteurs & Deciders','Map who uses, who influences, who decides — and who can kill the deal in hospital procurement.']],
+    vids:[['Seminar #4 — Market Assessment, Value Chains, and Value Propositions','https://youtu.be/lg9DWnOWMjs'],['Seminar #14 — Market Assessment and Value Propositions','https://youtu.be/Zsd08PqYG0o'],['Cases/Exercises: Market Analysis and Building a Value Proposition','https://youtu.be/zwaW4OP6_ns'],['Market Assessments: Expert Panel (podcast)','https://open.spotify.com/episode/7r2IxVoPXHB85K1q3wkH7i']],
+    ask:'Post your TAM/SAM/SOM numbers and your single most defensible source — challenge one other team’s sizing.'},
+   {id:'month5', title:'Month 5 — January 2027: MVP Planning & Solution Development', comps:'#1, #4, #6', theme:'From validated problem to buildable plan: KPIs, budget, IRB, and the first prototype work.',
+    obj:['Translate your validated need into an MVP specification with explicit key performance indicators.','Complete product planning: IRB submission, budget and resource needs, prototype plan.','Study the program’s exemplar apps and extract patterns for your own build.','Define your MVP testing plan with program leadership.'],
+    mile:[['MVP spec + KPIs','What you’ll build, and the numbers that prove value','Jan 15'],['Budget request (if needed)','Use the budget request form; discuss AWS grant access','Jan 22'],['IRB submitted (if applicable)','Templates in shared drive','Jan 29'],['Prototype started','First working element demonstrated at the Month 6 session','Jan 31']],
+    mats:[['📱 Exemplar apps','<a href="https://type1diabetes.netlify.app" target="_blank">Type 1 Diabetes web app</a> · <a href="https://apps.apple.com/us/app/asthmaxcel/id1250712449" target="_blank">ASTHMAXcel</a> · <a href="https://apps.apple.com/us/app/asthmaxcel-pro/id1500992014" target="_blank">ASTHMAXcel PRO</a> · <a href="https://apps.apple.com/us/app/diabetesxcel/id1534167428" target="_blank">DiabetesXcel</a>'],['🎬 ASTHMAXcel App Script — worked example','how patient-facing app content gets scripted, video by video'],['📝 Project development template','shared drive']],
+    conc:[['🔁 Iteration is a feature, not a bug','The journey is nonlinear: ideation ⇄ validation ⇄ build. No plan survives first contact with the customer.']],
+    vids:[['Developing, Implementing, Evaluating Mobile Health Technologies','https://youtu.be/D1vCPOAHdYU'],['Developing and Implementing Mobile Health Technologies','https://youtu.be/T4IdWHJMTcY'],['Seminar #7 — An Introduction to Python for Health Tech Innovation','https://youtu.be/VfD97VQVJVs'],['Lab Meeting #1 — Initial Solution Design and Validation Concepts','https://youtu.be/Rit0YKRBlEg']],
+    ask:'Which exemplar app is closest to your MVP, and what one pattern will you borrow from it?'},
+   {id:'month6', title:'Month 6 — February 2027: Prototype Build & Pitch Deck v1', comps:'#1, #5', theme:'A testable prototype in hand and your story on slides for the first time.',
+    obj:['Demonstrate a testable prototype element live in session.','Assemble pitch deck v1: needs assessment, stakeholder analysis, market assessment, competitive analysis.','Identify your pilot setting and the clinical champions who will make it happen.'],
+    mile:[['Prototype demo','Live in the Month 6 session — rough is fine, testable is required','Feb session'],['Pitch deck v1','Program template + Airbnb deck as reference','Feb 19'],['Pilot site + champions named','Target setting and key champions documented','Feb 26']],
+    mats:[['📊 Pitch deck template','shared drive'],['📈 Airbnb original pitch deck','<a href="https://slidebean.com/blog/airbnb-pitch-deck" target="_blank">annotated walkthrough</a>']],
+    conc:[['🎤 Deck = story, not documentation','Key slides only: need, stakeholders, market, competition. Everything else is appendix.']],
+    vids:[['Seminar #6 — Medical Device Innovation','https://youtu.be/LXxh3FxvHSU'],['Seminar #30 — Medical Device Innovation','https://youtu.be/9qujI4qV13M'],['Seminar #8 — Therapeutics Innovation','https://youtu.be/cyppg7G4GTY'],['Leveraging AI for Digital Health Innovation and Enhanced Clinical Care','https://youtu.be/AKWNxBXjFao']],
+    ask:'Post one slide you’re unsure about (describe it) — get async feedback before the session.'},
+   {id:'month7', title:'Month 7 — March 2027: Pilot Testing, Validation & Responsible AI', comps:'#3, #4', theme:'Real users, real data — measured against your KPIs, with responsible-AI guardrails in place.',
+    obj:['Launch your pilot: implementation, validation, and iterative improvement.','Track KPIs against the plan from Month 5 and analyze interim results.','Apply the clinical AI framework: See → Think → Act, and the descriptive → predictive → prescriptive analytics hierarchy.','Begin your IP strategy: invention disclosure and regulatory considerations.'],
+    mile:[['Pilot launched','At the target setting with named champions','Mar 12'],['Interim KPI readout','Data reviewed with mentors','Mar 26'],['Invention disclosure discussed','With program leadership and the Einstein Office of Biotechnology','Mar 26']],
+    mats:[['📋 Tip Sheet — Session 3: Bioethics Course','the clinical AI framework, condensed'],['📊 Lesson 3 slides — Clinical AI: Ethics and Practice','framework · utility · safeguards'],['📝 Pilot protocol + invention disclosure templates','shared drive']],
+    conc:[['🤖 Augmented, not artificial','AI enhances physician ability — it does not replace it. Design your solution accordingly.'],['👁️ Human-in-the-loop','AI supports clinical judgment; humans stay at key decision points (AMA principle).'],['⚖️ The bias pitfall','Flawed training data can create racial disparities in resource management — check yours.'],['🍓 The black box problem','LLMs hallucinate; professionals must verify AI outputs against primary sources.']],
+    vids:[['Seminar #15 — Intellectual Property and Regulatory Considerations','https://youtu.be/6SwgX4KNDEQ'],['Intellectual Property and Health Technology Innovation','https://youtu.be/JZmn3drK43E'],['Seminar #16 — Technology Validation and Key Performance','https://youtu.be/svkRoaK3FOk'],['AI Session — Bioethics Course','https://youtu.be/OotGtOUdAGk']],
+    ask:'Where exactly is the human-in-the-loop in your solution? Post the decision point a clinician still owns.'},
+   {id:'month8', title:'Month 8 — April 2027: Iteration, Dissemination & Sustainability', comps:'#5, #6, #7', theme:'Iterate from pilot data, tell the world, and build the plan that outlives the program year.',
+    obj:['Iterate your MVP based on pilot results and document the changes.','Draft an abstract and/or begin manuscript preparation.','Build the sustainability plan: grants, strategic partnerships, licensing via the institution vs spinoff formation.','Frame return on investment for the health system.'],
+    mile:[['Abstract draft','Target conference identified; review program publications for models','Apr 9'],['Funding & sustainability plan','Grants, partnerships, licensing vs spinoff — with a recommendation','Apr 23'],['Pitch deck v2','Updated with pilot data and financial story','Apr 30']],
+    mats:[['📊 Lesson 4 slides — AI in Healthcare: The New Era','policy · landscape · liability'],['📚 Innovation publications','shared drive — model abstracts and manuscripts']],
+    conc:[['💵 A $20B landscape','145 companies and 47,000 employees across healthcare AI — know exactly where you fit.'],['🏛️ The liability question','If AI causes harm, who is liable — developer, hospital, or the clinician who signed the note? Address it before your pitch.'],['📐 Performance validation','There are few standardized ways to prove an AI model is "better or safer" than current standard of care — define yours.']],
+    vids:[['Seminar #9 — Funding and Project Sustainability','https://youtu.be/dGpgSs0r3vU'],['Seminar #18 — Funding and Project Sustainability','https://youtu.be/x4e7m-gD_eQ'],['Seminar #21 — Strategic Partnerships','https://youtu.be/ITZ57yuwvpU'],['Seminar #22 — Financial Accounting and Valuation 101','https://youtu.be/ndY_HI4FDy8']],
+    ask:'Institutional licensing or spinoff — which path fits your project, and what would change your mind?'},
+   {id:'month9', title:'Month 9 — May 2027: Final Pitch to Leadership', comps:'all seven', theme:'Ten minutes in front of Montefiore Einstein leadership. Everything this year comes down to a clear story with proof.',
+    obj:['Deliver a polished end-of-program pitch to Montefiore Einstein leadership.','Incorporate structured feedback from mentor and peer practice rounds.','Present a concrete next-steps and handoff plan for project continuity.'],
+    mile:[['Practice pitch with mentors','Structured feedback captured and applied','May 7'],['Final deck locked','No changes after this date — rehearse instead','May 14'],['🏁 End-of-program pitch','To Montefiore Einstein leadership','May 21'],['Handoff & continuity plan','Who carries the project forward, and how','May 28']],
+    mats:[['📊 Pitch deck final checklist','needs · stakeholders · market · competition · pilot data · sustainability']],
+    conc:[['🏆 Lead with the metric','Open with the one number that proves value — clinical, process, or economic.']],
+    vids:[['End of Year Pitch Presentations (2021)','https://youtu.be/Fdfn3I1UlH0'],['End of Year Pitch Presentations (2022)','https://youtu.be/Mg_59exgT8I'],['End of Year Pitch Presentations (2024)','https://youtu.be/hmuWRU-1yUM'],['End of Year Pitch Presentations (2025)','https://youtu.be/JSLFhyk9Wnw']],
+    ask:'Watch one past pitch above: what did the strongest team do in their first 60 seconds? Steal it.'}
+  ];
+
+  MONTHS.forEach(function(mo){
+    var sec = document.getElementById(mo.id);
+    var h = '<div class="card"><span class="pill new">Open</span><h2 style="display:inline">' + mo.title + '</h2>';
+    h += '<p style="margin-top:10px">Theme: <i>' + mo.theme + '</i> Competencies addressed: <b>' + mo.comps + '</b>.</p>';
+    h += '<h3>Learning objectives — by the end of this month you can:</h3>';
+    mo.obj.forEach(function(o,i){ h += '<div class="obj"><b>' + (i+1) + '.</b> ' + o + '</div>'; });
+    h += '<h3>Assignments &amp; milestones</h3><table class="simple"><tr><th>Deliverable</th><th>Details</th><th>Due</th></tr>';
+    mo.mile.forEach(function(m){ h += '<tr><td><span class="pill due">Due</span> ' + m[0] + '</td><td>' + m[1] + '</td><td>' + m[2] + '</td></tr>'; });
+    h += '</table><h3>📎 This month’s templates &amp; materials</h3><div class="mats">';
+    mo.mats.forEach(function(m){ h += '<div class="mat" title="Lives in the repo /materials folder">' + m[0] + ' <span>· ' + m[1] + '</span></div>'; });
+    h += '</div>';
+    if(mo.conc && mo.conc.length){ h += '<h3>Key concepts</h3><div class="concepts">'; mo.conc.forEach(function(c){ h += '<div class="concept"><b>' + c[0] + '</b>' + c[1] + '</div>'; }); h += '</div>'; }
+    h += '<h3>▶️ Watch this month</h3><ul>';
+    mo.vids.forEach(function(v){ h += '<li><a href="' + v[1] + '" target="_blank">' + v[0] + '</a></li>'; });
+    h += '</ul><p class="small">More in the 🎥 Video Library tab, filtered to this month’s biodesign domain.</p></div>';
+    h += '<div class="card"><h2>💬 ' + mo.title.split('—')[0].trim() + ' Discussion</h2>';
+    h += '<div class="callout" style="margin-bottom:14px"><b>This month’s prompt:</b> ' + mo.ask + '</div>';
+    h += '<div class="cwrap"><p class="small empty">No posts yet — be the first to start this month’s thread.</p></div>';
+    h += '<form class="cform mform"><input type="text" placeholder="Your name and role (e.g., J. Smith, Fellow)" required><textarea placeholder="Write a comment or question…" required></textarea><button type="submit">Post comment</button></form></div>';
+    sec.innerHTML = h;
+    var form = sec.querySelector('.mform');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = form.querySelector('input').value.trim();
+      var body = form.querySelector('textarea').value.trim();
+      if(!name || !body) return;
+      var wrap = sec.querySelector('.cwrap');
+      var emptyNote = wrap.querySelector('.empty');
+      if(emptyNote) emptyNote.remove();
+      var d = makeComment(name, body);
+      wrap.appendChild(d);
+      addReplyUI(d);
+      form.reset();
+    });
+  });
+
+
+  // Month 1 comment form
+  document.getElementById('cform').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('cname').value.trim();
+    var body = document.getElementById('cbody').value.trim();
+    if(!name || !body) return;
+    var d = makeComment(name, body);
+    var m1e = document.getElementById('m1empty');
+    if(m1e) m1e.remove();
+    document.getElementById('comments').appendChild(d);
+    addReplyUI(d);
+    this.reset();
+  });
+</script>
+</body>
+</html>
