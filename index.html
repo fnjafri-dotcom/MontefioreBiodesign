@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innovation Biodesign &amp; AI Program 2026–2027 | Living Syllabus</title>
+<style>
+  :root{
+    --navy:#00305c; --blue:#005eb8; --lightblue:#e8f1fa; --accent:#f5a623;
+    --ink:#1a2733; --muted:#5b6b7a; --line:#dde5ec; --bg:#f7f9fb; --card:#ffffff;
+    --green:#1e7f4f; --green-bg:#e6f4ec; --locked:#9aa7b3;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.55;}
+  a{color:var(--blue);}
+  .wrap{max-width:1020px; margin:0 auto; padding:0 20px;}
+
+  header.hero{background:linear-gradient(135deg,var(--navy),var(--blue)); color:#fff; padding:36px 0 28px;}
+  header.hero h1{font-size:1.7rem; font-weight:700; letter-spacing:-.02em;}
+  header.hero .sub{margin-top:6px; opacity:.92; font-size:1rem;}
+  header.hero .badge{display:inline-block; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35); border-radius:999px; padding:3px 12px; font-size:.78rem; margin-bottom:12px; letter-spacing:.04em; text-transform:uppercase;}
+
+  nav.tabs{background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:10;}
+  nav.tabs .wrap{display:flex; gap:2px; overflow-x:auto;}
+  nav.tabs button{appearance:none; border:none; background:none; padding:14px 16px; font-size:.92rem; font-weight:600; color:var(--muted); cursor:pointer; border-bottom:3px solid transparent; white-space:nowrap;}
+  nav.tabs button:hover{color:var(--blue);}
+  nav.tabs button.active{color:var(--blue); border-bottom-color:var(--blue);}
+  nav.tabs button.locked{color:var(--locked); cursor:not-allowed;}
+  nav.tabs button.locked::after{content:" 🔒"; font-size:.75em;}
+
+  main{padding:28px 0 60px;}
+  section.tab{display:none;}
+  section.tab.active{display:block;}
+
+  .card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin-bottom:18px;}
+  .card h2{font-size:1.2rem; color:var(--navy); margin-bottom:10px;}
+  .card h3{font-size:1rem; color:var(--navy); margin:16px 0 6px;}
+  .card p{margin-bottom:10px;}
+  .card ul, .card ol{margin:4px 0 12px 22px;}
+  .card li{margin-bottom:6px;}
+  .pill{display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; border-radius:999px; padding:2px 10px; margin-right:6px;}
+  .pill.due{background:#fdeeee; color:#b02a2a;}
+  .pill.read{background:var(--lightblue); color:var(--blue);}
+  .pill.done{background:var(--green-bg); color:var(--green);}
+  .pill.new{background:#fff4e0; color:#9a6b00;}
+
+  .callout{border-left:4px solid var(--accent); background:#fffaf0; border-radius:6px; padding:14px 16px; margin-bottom:18px; font-size:.95rem;}
+  .callout.blue{border-left-color:var(--blue); background:var(--lightblue);}
+
+  table.simple{width:100%; border-collapse:collapse; font-size:.92rem; margin-bottom:8px;}
+  table.simple th{background:var(--lightblue); color:var(--navy); text-align:left; padding:8px 10px; border:1px solid var(--line);}
+  table.simple td{padding:8px 10px; border:1px solid var(--line); vertical-align:top;}
+
+  .timeline{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; margin-top:8px;}
+  .tl-card{border:1px solid var(--line); border-radius:10px; padding:16px 18px; background:#fff; position:relative;}
+  .tl-card.open{border-color:var(--blue); box-shadow:0 2px 8px rgba(0,94,184,.12);}
+  .tl-card.lockedc{opacity:.75; background:#fbfcfd;}
+  .tl-card .mo{font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--muted);}
+  .tl-card h4{color:var(--navy); margin:4px 0 6px; font-size:1rem;}
+  .tl-card p{font-size:.87rem; color:var(--muted);}
+  .tl-card .status{position:absolute; top:14px; right:14px; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em;}
+  .tl-card .status.live{color:var(--green);}
+  .tl-card .status.lock{color:var(--locked);}
+
+  .obj{background:var(--green-bg); border:1px solid #cbe7d6; border-radius:8px; padding:12px 16px; margin-bottom:8px; font-size:.95rem;}
+  .obj b{color:var(--green);}
+
+  /* comments */
+  .comment{border:1px solid var(--line); border-radius:8px; padding:12px 14px; margin-bottom:10px; background:#fff;}
+  .comment .who{font-weight:700; color:var(--navy); font-size:.9rem;}
+  .comment .when{color:var(--muted); font-size:.78rem; margin-left:8px;}
+  .comment .body{margin-top:4px; font-size:.93rem;}
+  .comment.reply{margin-left:34px; background:#fbfcfd;}
+  form.cform{margin-top:14px; display:grid; gap:8px;}
+  form.cform input, form.cform textarea{font:inherit; border:1px solid var(--line); border-radius:6px; padding:9px 11px; width:100%;}
+  form.cform textarea{min-height:70px; resize:vertical;}
+  form.cform button{justify-self:start; background:var(--blue); color:#fff; border:none; border-radius:6px; padding:9px 18px; font-weight:600; cursor:pointer;}
+  form.cform button:hover{background:var(--navy);}
+
+  footer{border-top:1px solid var(--line); padding:20px 0 40px; color:var(--muted); font-size:.85rem; background:#fff;}
+  .small{font-size:.82rem; color:var(--muted);}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">Living syllabus · updated monthly · demo</span>
+    <h1>Montefiore Einstein Innovation Biodesign &amp; AI Program</h1>
+    <div class="sub">2026–2027 Cohort · One new month unlocks at the start of each month — everything you need, in one place.</div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="wrap">
+    <button class="active" data-tab="syllabus">Syllabus</button>
+    <button data-tab="month1">Month 1 · Sep</button>
+    <button class="locked" title="Unlocks October 1">Month 2 · Oct</button>
+    <button class="locked" title="Unlocks November 1">Month 3 · Nov</button>
+    <button data-tab="roadmap">12-Month Roadmap</button>
+    <button data-tab="resources">Resources</button>
+    <button data-tab="faq">FAQ</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ================= SYLLABUS ================= -->
+  <section class="tab active" id="syllabus">
+    <div class="callout blue"><b>How this site works:</b> at the start of every month, a new section is added to this page (a single <code>index.html</code> on GitHub). Each month's section tells you exactly what to read <i>before</i> the session, what the learning objectives are, what's due, and gives you a discussion thread for asynchronous questions. No more guessing what's expected.</div>
+
+    <div class="card">
+      <h2>Program Overview</h2>
+      <p>A 12-month, project-based program taking clinician and trainee teams from an unmet clinical need to a tested minimum viable product (MVP), final pitch, and dissemination plan — using the Stanford Biodesign process (identify → invent → implement) augmented with AI tools at each stage.</p>
+      <table class="simple">
+        <tr><th>Directors</th><td>Program leadership (Dr. Jariwala) — office hours by request</td></tr>
+        <tr><th>Meets</th><td>Monthly seminar (see each month's section for agenda) + team working sessions</td></tr>
+        <tr><th>Teams</th><td>3–4 members per team, with faculty mentor(s) identified in Month 1</td></tr>
+        <tr><th>Final deliverables</th><td>Tested MVP · End-of-year pitch presentation · Abstract or manuscript · IP/sustainability plan</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>What You Will Be Able to Do by June</h2>
+      <div class="obj"><b>1.</b> Conduct a structured needs assessment and select a validated, high-impact clinical need.</div>
+      <div class="obj"><b>2.</b> Perform an AI-enabled market assessment (TAM/SAM/SOM), segmentation, and competitive analysis (SWOT, Porter's Five Forces).</div>
+      <div class="obj"><b>3.</b> Build and pilot-test an MVP with a defined testing protocol and key performance indicators.</div>
+      <div class="obj"><b>4.</b> Deliver a compelling elevator pitch and investor-style pitch deck.</div>
+      <div class="obj"><b>5.</b> Navigate IRB, intellectual property disclosure, and dissemination (abstract/manuscript) pathways.</div>
+    </div>
+
+    <div class="card">
+      <h2>The Backbone: Project Statement (Problem Space → Solution Space)</h2>
+      <p>Every team maintains one living <b>Project Statement</b> document. The monthly sections below walk you through completing it step by step:</p>
+      <table class="simple">
+        <tr><th style="width:50%">Problem Space (Months 1–4)</th><th>Solution Space (Months 5–12)</th></tr>
+        <tr><td>
+          1. Needs identification (multiple needs, screened)<br>
+          2. Market assessment — AI-enabled (TAM/SAM/SOM, segmentation)<br>
+          3. Competitive landscape &amp; Porter's Five Forces<br>
+          4. Literature review (PubMed, Google Scholar)<br>
+          5. Existing tech scan (app stores, ClinicalTrials.gov, USPTO)<br>
+          6. Stakeholder feedback — ≥10 interviews
+        </td><td>
+          1. Product planning &amp; invention (IRB, value proposition, KPIs, budget, prototype)<br>
+          2. Pilot testing: implementation, validation, iteration<br>
+          3. Intellectual property (invention disclosure)<br>
+          4. Dissemination, funding &amp; sustainability (abstracts, pitch deck, grants/partnerships)
+        </td></tr>
+      </table>
+      <p class="small">Templates for every step live in the shared Google Drive and are linked from the month where you need them.</p>
+    </div>
+
+    <div class="card">
+      <h2>Expectations &amp; Norms</h2>
+      <ul>
+        <li><b>Before each session:</b> complete the listed readings/podcasts — sessions assume you've done them.</li>
+        <li><b>Assignments:</b> due dates are listed in each month's section; deliverables go in your team's folder on the shared drive.</li>
+        <li><b>Asynchronous discussion:</b> post questions in the month's discussion thread — answers benefit the whole cohort and feed the FAQ.</li>
+        <li><b>Mentorship:</b> meet your faculty mentor at least monthly; escalate blockers to program leadership early.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= MONTH 1 ================= -->
+  <section class="tab" id="month1">
+    <div class="card">
+      <span class="pill new">Now open</span>
+      <h2 style="display:inline">Month 1 — September 2026: Orientation, Teams &amp; Needs Finding</h2>
+      <p style="margin-top:10px">Theme: <i>"A good problem is worth a hundred solutions."</i> This month is about setup and disciplined needs identification — not solutions yet.</p>
+
+      <h3>Learning objectives — by the end of this month you can:</h3>
+      <div class="obj"><b>1.</b> Explain the biodesign innovation cycle (identify → invent → implement) and where AI accelerates each phase.</div>
+      <div class="obj"><b>2.</b> Distinguish a well-characterized clinical <i>need statement</i> (population + problem + outcome) from a solution in disguise.</div>
+      <div class="obj"><b>3.</b> Apply Thiel's "zero to one" and Christensen's disruption frameworks to critique one existing digital health product.</div>
+      <div class="obj"><b>4.</b> Begin a literature and stakeholder discovery workflow using PubMed, ClinicalTrials.gov, Crunchbase, and FDA digital health reports.</div>
+
+      <h3>Read / listen before the Month 1 session</h3>
+      <ul>
+        <li><span class="pill read">Read</span> <b>Zero to One</b> (Peter Thiel) — Ch. 1–4 this month; finish by end of Month 2.</li>
+        <li><span class="pill read">Read</span> <b>The Innovator's Dilemma</b> (Clay Christensen) — Introduction + Ch. 1; finish by end of Month 2.</li>
+        <li><span class="pill read">Read</span> NEJM Catalyst: <i>The Clinician Role in Health Care Delivery and Innovation</i>.</li>
+        <li><span class="pill read">Listen</span> <a href="https://anchor.fm/montebiodesign" target="_blank">Innovation Biodesign Podcast</a>: "Digital Health Innovation and Biodesign."</li>
+      </ul>
+
+      <h3>Assignments — due before the Month 2 session</h3>
+      <table class="simple">
+        <tr><th>Deliverable</th><th>Details</th><th>Due</th></tr>
+        <tr><td><span class="pill due">Due</span> 10 needs list</td><td>10 clinical, administrative, or workflow needs <b>per person</b>, each as a 1–2 sentence need statement (template in shared drive).</td><td>Sep 25</td></tr>
+        <tr><td><span class="pill due">Due</span> Team &amp; mentor form</td><td>Team of 3–4 + at least one faculty mentor identified; request ad hoc mentors from leadership if needed.</td><td>Sep 25</td></tr>
+        <tr><td><span class="pill due">Due</span> Setup checklist</td><td>LinkedIn profile created/updated · shared Google Drive access confirmed · IRB templates reviewed (if applicable).</td><td>Sep 18</td></tr>
+      </table>
+
+      <h3>This month's templates &amp; tools</h3>
+      <ul>
+        <li>Needs statement &amp; stakeholder feedback session templates — shared drive.</li>
+        <li>Discovery databases: PubMed, Google Scholar, ClinicalTrials.gov, Crunchbase, USPTO, FDA Digital Health reports.</li>
+        <li>AI assist: use an LLM to cluster and prioritize your 10 needs by frequency, severity, and addressability — bring the prompt + output to the session.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>💬 Month 1 Discussion</h2>
+      <p class="small">Ask questions, share finds, help classmates — posts are visible to the whole cohort and program leadership. (Demo note: in the live version this thread is powered by GitHub Discussions, so every comment is signed and permanent.)</p>
+      <div id="comments">
+        <div class="comment"><span class="who">S. Rahman (PGY-2)</span><span class="when">Sep 9</span><div class="body">For the 10 needs — do workflow annoyances count (e.g., discharge summary delays), or should they all be patient-facing clinical problems?</div></div>
+        <div class="comment reply"><span class="who">Dr. Jariwala (Program Director)</span><span class="when">Sep 9</span><div class="body">Great question — yes, workflow and administrative needs absolutely count. The best projects often start there. Just phrase each as a need statement, not a solution.</div></div>
+        <div class="comment"><span class="who">A. Chen (Fellow)</span><span class="when">Sep 11</span><div class="body">Found the FDA's latest digital health guidance super useful for the discovery step — linking it here for the group.</div></div>
+      </div>
+      <form class="cform" id="cform">
+        <input type="text" id="cname" placeholder="Your name and role (e.g., J. Smith, PGY-3)" required>
+        <textarea id="cbody" placeholder="Write a comment or question…" required></textarea>
+        <button type="submit">Post comment</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= ROADMAP ================= -->
+  <section class="tab" id="roadmap">
+    <div class="card">
+      <h2>12-Month Roadmap</h2>
+      <p>Each block below becomes a full section (objectives · readings · assignments · discussion) when its month opens. You always know what's coming next.</p>
+      <div class="timeline">
+        <div class="tl-card open"><span class="status live">● Open</span><div class="mo">Months 1–2 · Sep–Oct</div><h4>Project Setup &amp; Needs Assessment</h4><p>Teams &amp; mentors · required readings · 10 needs each · literature review &amp; stakeholder discovery · IRB started.</p></div>
+        <div class="tl-card lockedc"><span class="status lock">Opens Nov</span><div class="mo">Months 3–4 · Nov–Dec</div><h4>Problem Space Definition</h4><p>Final need &amp; problem statement · elevator pitch · AI-enabled market assessment (TAM/SAM) · SWOT &amp; Porter's · MVP plan.</p></div>
+        <div class="tl-card lockedc"><span class="status lock">Opens Jan</span><div class="mo">Months 5–6 · Jan–Feb</div><h4>Solution Development</h4><p>MVP build begins · market/competitive analysis complete · first pitch deck slides · refine value proposition.</p></div>
+        <div class="tl-card lockedc"><span class="status lock">Opens Mar</span><div class="mo">Months 7–8 · Mar–Apr</div><h4>MVP Testing &amp; Validation</h4><p>Testing begins · pitch deck v2 · abstract/manuscript planning · initial IP strategy.</p></div>
+        <div class="tl-card lockedc"><span class="status lock">Opens May</span><div class="mo">Months 9–10 · May–Jun</div><h4>Refinement &amp; Preparation</h4><p>Iterate MVP from results · final pitch deck · abstract submitted · IP &amp; sustainability plan.</p></div>
+        <div class="tl-card lockedc"><span class="status lock">Opens Jul</span><div class="mo">Months 11–12 · Jul–Aug</div><h4>Final Presentation &amp; Next Steps</h4><p>Practice with mentors &amp; peers · end-of-year pitch presentation · handoff and sustainability.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RESOURCES ================= -->
+  <section class="tab" id="resources">
+    <div class="card">
+      <h2>Program Resource Library</h2>
+      <p class="small">Everything from the shared drive and program site, organized by the stage where you'll need it. Each month's section links only what's relevant that month.</p>
+      <h3>Core books</h3>
+      <ul><li>Peter Thiel — <i>Zero to One</i> · Clay Christensen — <i>The Innovator's Dilemma</i></li></ul>
+      <h3>Biodesign &amp; digital health</h3>
+      <ul>
+        <li><a href="https://www.mckinsey.com/industries/healthcare-systems-and-services/our-insights/the-next-wave-of-healthcare-innovation-the-evolution-of-ecosystems" target="_blank">McKinsey — The Next Wave of Healthcare Innovation</a></li>
+        <li><a href="https://www2.deloitte.com/us/en/insights/industry/health-care/digital-health-technology.html" target="_blank">Deloitte — Global Digital Health Case Studies</a></li>
+      </ul>
+      <h3>Market assessment &amp; segmentation</h3>
+      <ul>
+        <li><a href="https://www.forbes.com/sites/alejandrocremades/2018/09/23/how-to-effectively-determine-your-market-size/" target="_blank">Forbes — How to Determine Your Market Size</a></li>
+        <li><a href="https://medium.com/startup-grind/your-market-size-is-only-a-fraction-of-what-you-think-it-is-f31f79cd1e95" target="_blank">Your Market Size Is Only a Fraction of What You Think</a></li>
+        <li><a href="https://medium.com/@Hurree/your-essential-guide-to-market-segmentation-c9ed17142ead" target="_blank">Essential Guide to Market Segmentation</a></li>
+      </ul>
+      <h3>Competitive analysis</h3>
+      <ul>
+        <li><a href="https://www.columnfivemedia.com/how-to-do-a-competitive-analysis-in-5-steps" target="_blank">Competitive Analysis in 5 Steps</a> · <a href="https://www.wordstream.com/blog/ws/2017/12/20/swot-analysis" target="_blank">SWOT How-To</a> · <a href="https://www.youtube.com/watch?v=OCnlArFuU-E" target="_blank">Porter's Five Forces (video)</a></li>
+      </ul>
+      <h3>Value proposition &amp; pitching</h3>
+      <ul>
+        <li><a href="https://hbr.org/2009/09/value-propositions-that-work.html" target="_blank">HBR — Value Propositions That Work</a> · <a href="https://slidebean.com/blog/airbnb-pitch-deck" target="_blank">Airbnb Pitch Deck</a> · Elevator pitch &amp; pitch deck templates (shared drive)</li>
+      </ul>
+      <h3>Seminars &amp; podcasts</h3>
+      <ul>
+        <li><a href="https://www.einsteinmed.edu/departments/medicine/innovation/seminars-podcasts/" target="_blank">Program seminar recordings</a> · <a href="https://anchor.fm/montebiodesign" target="_blank">Innovation Biodesign Podcast</a> · Shared Google Drive (cases, exercises, templates)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="tab" id="faq">
+    <div class="card">
+      <h2>FAQ <span class="small">(grows from your discussion questions)</span></h2>
+      <h3>How do I access AWS for my project?</h3>
+      <p>Review the AWS features relevant to your build, then contact program leadership to request access through the program's AWS grant.</p>
+      <h3>What goes in my pitch deck?</h3>
+      <p>Use the template in the shared drive. Key slides: needs assessment, stakeholder analysis, market assessment, competitive analysis.</p>
+      <h3>What if my project type has no template?</h3>
+      <p>Discuss with Dr. Jariwala and your project mentors — templates are added as new project types emerge.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">Innovation Biodesign &amp; AI Program · Montefiore Einstein · Demo of a monthly "living syllabus" on GitHub Pages — each month, one section is added to this page via a single commit.</div>
+</footer>
+
+<script>
+  // tab switching
+  document.querySelectorAll('nav.tabs button[data-tab]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('nav.tabs button').forEach(function(b){b.classList.remove('active');});
+      document.querySelectorAll('section.tab').forEach(function(s){s.classList.remove('active');});
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({top:0});
+    });
+  });
+  // demo comments (in-memory; production = GitHub Discussions)
+  document.getElementById('cform').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('cname').value.trim();
+    var body = document.getElementById('cbody').value.trim();
+    if(!name || !body) return;
+    var d = document.createElement('div');
+    d.className = 'comment';
+    var who = document.createElement('span'); who.className='who'; who.textContent = name;
+    var when = document.createElement('span'); when.className='when'; when.textContent = 'just now';
+    var b = document.createElement('div'); b.className='body'; b.textContent = body;
+    d.appendChild(who); d.appendChild(when); d.appendChild(b);
+    document.getElementById('comments').appendChild(d);
+    this.reset();
+  });
+</script>
+</body>
+</html>
